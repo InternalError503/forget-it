@@ -336,6 +336,7 @@ var forgetittimer = {
                                 text: ""
                             });
                             forgetit.browserForget();
+                            forgetittimer.setup();
                         }
                     }, 1000);
                     break;
