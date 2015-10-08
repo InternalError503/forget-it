@@ -23,7 +23,7 @@
 					THE SOFTWARE.
 
 				*/
-	var restartmychromecancel = {
+	var forgetitforget = {
 	    init: function() {
 	        try {
 	            chrome.runtime.onMessage.addListener(
@@ -32,27 +32,27 @@
 	                }
 	            );
 	            document.getElementById('cancelTitle').textContent = chrome.i18n.getMessage("appCancelTitle");
-	            document.getElementById('cancelRestartIn').textContent = chrome.i18n.getMessage("appCancelRestartIn");
-	            document.getElementById('restartInMinutesLabel').textContent = chrome.i18n.getMessage("appCancelRestartInMinutes");
-	            document.getElementById('restartNowButton').textContent = chrome.i18n.getMessage("appCancelRestartNowButton");
+	            document.getElementById('cancelForgetIn').textContent = chrome.i18n.getMessage("appCancelForgetIn");
+	            document.getElementById('forgetInMinutesLabel').textContent = chrome.i18n.getMessage("appCancelForgetInMinutes");
+	            document.getElementById('forgetNowButton').textContent = chrome.i18n.getMessage("appCancelForgetNowButton");
 	            document.getElementById('cancelButton').textContent = chrome.i18n.getMessage("appCancelButton");
 	        } catch (e) {
-	            alert("An error was encountered while initializing cancel.js " + e);
+	            alert("An error was encountered while initializing forget.js " + e);
 	        }
 	    }
 	};
 
-	document.addEventListener('DOMContentLoaded', restartmychromecancel.init);
-	document.getElementById('restartNow').addEventListener('click', function() {
+	document.addEventListener('DOMContentLoaded', forgetitforget.init);
+	document.getElementById('forgetNow').addEventListener('click', function() {
 	    try {
-	        chrome.extension.getBackgroundPage().restartmychrome.browserRestart();
+	        chrome.extension.getBackgroundPage().forgetit.browserForget();
 	    } catch (e) {
-	        alert("An error was encountered while triggering the restart now button click event " + e);
+	        alert("An error was encountered while triggering the Forget now button click event " + e);
 	    }
 	});
 	document.getElementById('cancel').addEventListener('click', function() {
 	    try {
-	        chrome.extension.getBackgroundPage().restartmychrometimer.timedRestart("", false, 0);
+	        chrome.extension.getBackgroundPage().forgetittimer.timedForget("", false, 0);
 	        chrome.browserAction.setBadgeText({
 	            text: ""
 	        });

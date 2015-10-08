@@ -1,10 +1,10 @@
 {
   "appName": {
-    "message": "Restart My Chrome",
+    "message": "Forget It",
     "description": "The title of the application, displayed in the web store."
   },
   "appDesc": {
-    "message": "Allows users to easily restart the web browser.", 
+    "message": "Allows users to easily forget current browsing history and data.", 
     "description":"The description of the application, displayed in the web store."
   },
   "appOptionsConfirmations": {
@@ -12,12 +12,12 @@
     "description":"Confirmations label"
   },
   "appOptionsEnableConfirm": {
-    "message": "Enable restart confirmation.", 
-    "description":"Text for enable confirmation on restart."
+    "message": "Enable forget it confirmation.", 
+    "description":"Text for enable confirmation on forget."
   },
   "appOptionsEnableConfirmData": {
-    "message": "Enable clear data restart confirmation.", 
-    "description":"Text for enable confirmation on clear data restart."
+    "message": "Enable clear data confirmation.", 
+    "description":"Text for enable confirmation on clear data request."
   },
   "appOptionsClearData": {
     "message": "Browsing Data:", 
@@ -115,53 +115,37 @@
     "message": "The (Clear Browser Data) feature is use at own risk, If you use this feature then you understand the risk that it permanently deletes this data, What data does it cover", 
     "description":"Disclaimer Message"
   },
-  "appRestartConfrim": {
-    "message": "Do you really want to restart?", 
-    "description":"Test for restart confirmation"
+  "appForgetConfrim": {
+    "message": "Do you really want to forget it?", 
+    "description":"Test for forget it confirmation"
   },
-  "appRestartConfrimData": {
-    "message": "Do you really want clear all data & restart?", 
-    "description":"Test for clear data restart confirmation"
+  "appForgetConfrimData": {
+    "message": "Do you really want forget all data?", 
+    "description":"Test for forget data confirmation"
   },
-  "appOptionsEnableTimedRestart": {
-    "message": "Enable automatic restart at set interval. (on|off)", 
-    "description":"Enable automatic restart options label"
+  "appOptionsEnableTimedForget": {
+    "message": "Enable automatic forget at set interval. (on|off)", 
+    "description":"Enable automatic forget options label"
   },
-  "appOptionsRestartTimeHour": {
+  "appOptionsForgetTimeHour": {
     "message": "Hour based timer.", 
     "description":"Hour based timer label"
   },
-  "appOptionsRestartMinuteTime": {
+  "appOptionsForgetMinuteTime": {
     "message": "Minute based timer.", 
     "description":"Minute based timer label"
   },
-  "appOptionsRestartTime": {
-    "message": "Set restart time: ", 
-    "description":"Set restart time label"
+  "appOptionsForgetTime": {
+    "message": "Set forget time: ", 
+    "description":"Set forget time label"
   },
-  "appOptionsRestartIn": {
-    "message": "Restarting in:", 
-    "description":"label for Restarting in: "
+  "appOptionsForgetIn": {
+    "message": "Forgetting in:", 
+    "description":"label for forgetting in: "
   },
-  "appOptionsRestartInMinutes": {
+  "appOptionsForgetInMinutes": {
     "message": " minutes", 
-    "description":"label for Restarting in minutes "
-  },
-  "appOptionsStartupTitle": {
-    "message": "Start-up page", 
-    "description":"label for startup title"
-  }, 
-  "appOptionsEnableStartupPage": {
-    "message": "Open a specific page after restart.", 
-    "description":"label for enable startup page"
-  },
-  "appOptionsStartupPageURL": {
-    "message": "Enter website address: ", 
-    "description":"label for startup page URL"
-  },
-  "appOptionsStartupPageURLP": {
-    "message": "Enter a web address (URL)", 
-    "description":"label for startup page URL placeholder"
+    "description":"label for forgetting in minutes "
   },
   "appOptionsSupportTitle": {
     "message": "Support & Information.", 
@@ -176,20 +160,20 @@
     "description":"label for See all changes made:"
   },
   "appCancelTitle": {
-    "message": "Auto restart is about to trigger.!", 
+    "message": "Auto forgetting is about to trigger.!", 
     "description":"Main title for cancel popup"
   },
-  "appCancelRestartIn": {
-    "message": "Restarting in:", 
-    "description":"label for Restarting in: "
+  "appCancelForgetIn": {
+    "message": "Forgetting in:", 
+    "description":"label for forgetting in: "
   },
-  "appCancelRestartInMinutes": {
+  "appCancelForgetInMinutes": {
     "message": " minutes", 
-    "description":"label for Restarting in minutes "
+    "description":"label for forgetting in minutes "
   },
-  "appCancelRestartNowButton": {
-    "message": "Restart Now", 
-    "description":"label for RestartNow button"
+  "appCancelForgetNowButton": {
+    "message": "Forget It Now", 
+    "description":"label for ForgetNow button"
   },
   "appCancelButton": {
     "message": "Cancel", 

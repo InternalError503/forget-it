@@ -1,4 +1,3 @@
-//Restart my fox now has a chrome version: restart my chrome.
 /*
 
 		The MIT License (MIT)
@@ -25,34 +24,27 @@
 
 	*/
 chrome.browserAction.onClicked.addListener(function(activeTab) {
-    restartmychrome.browserRestart();
+    forgetit.browserForget();
 });
 
-var restartmychrome = {
+var forgetit = {
 	
 	init : function(){
 		 chrome.storage.sync.get({
-			restarted: false,
-			openStartPage: false,
-			openStartPageURL: "",
+			Forgeted: false,
 		}, function(key) {
-			if (key.restarted === true && key.openStartPage === true){
+			if (key.Forgeted === true ){
 				chrome.storage.sync.set({
-					restarted: false
+					Forgeted: false
 				});
-				if (key.openStartPageURL != ""){
-					chrome.tabs.create({
-						url: key.openStartPageURL
-					 });
-				}
 			}
 		});
 			chrome.contextMenus.create({
-				  title: chrome.i18n.getMessage("appCancelRestartNowButton"),
-				  id: "contextRestartNow",
+				  title: chrome.i18n.getMessage("appCancelForgetNowButton"),
+				  id: "contextForgetNow",
 				  contexts: ["browser_action"],
 				  onclick: function() {
-					restartmychrome.browserRestart();
+					forgetit.browserForget();
 				  }
 			});
 			chrome.contextMenus.create({
@@ -60,7 +52,7 @@ var restartmychrome = {
 				  id: "contextStart",
 				  contexts: ["browser_action"],
 				  onclick: function() {
-					restartmychrometimer.onChange();
+					forgetittimer.onChange();
 				  }
 			});
 			chrome.contextMenus.create({
@@ -68,7 +60,7 @@ var restartmychrome = {
 				  id: "contextCancel",
 				  contexts: ["browser_action"],
 				  onclick: function() {
-					restartmychrometimer.timedRestart("", false, 0);
+					forgetittimer.timedForget("", false, 0);
 					chrome.browserAction.setBadgeText({
 						text: ""
 					});
@@ -76,30 +68,26 @@ var restartmychrome = {
 			});
 	},	
 
-    //Restart event
-    browserRestart: function() {
+    //Forget event
+    browserForget: function() {
         chrome.storage.sync.get({
-            confirmRestart: false,
-            confirmDataRestart: true,
+            confirmForget: false,
+            confirmDataForget: true,
             clearDataFrom: "hour",
             clearAllData: false,
-            timedRestart: false
+            timedForget: false
         }, function(key) {
             try {
-                var RestartURI = "chrome://restart";
                 var callback = function() {
 					chrome.storage.sync.set({
-						restarted: true
+						Forgeted: true
 					});
-                    chrome.tabs.create({
-                        url: RestartURI
-                    });
                 };
 
-                if (key.timedRestart === true) {
+                if (key.timedForget === true) {
                     chrome.storage.sync.set({
-                        confirmRestart: false,
-                        confirmDataRestart: false
+                        confirmForget: false,
+                        confirmDataForget: false
                     });
                 }
 
@@ -126,26 +114,20 @@ var restartmychrome = {
                     if (clearFrom === "") {
                         return;
                     }
-                    restartmychrome.clearAllData(true, callback, key.confirmDataRestart, clearFrom);
-                } else if (key.confirmRestart === true) {
-                    if (confirm(chrome.i18n.getMessage("appRestartConfrim"))) {
+                    forgetit.clearAllData(true, callback, key.confirmDataForget, clearFrom);
+                } else if (key.confirmForget === true) {
+                    if (confirm(chrome.i18n.getMessage("appForgetConfrim"))) {
 						chrome.storage.sync.set({
-							restarted: true
+							Forgeted: true
 						});
-                        chrome.tabs.create({
-                            url: RestartURI
-                        });
                     }
                 } else {
 					chrome.storage.sync.set({
-						restarted: true
+						Forgeted: true
 					});
-                    chrome.tabs.create({
-                        url: RestartURI
-                    });
                 }
             } catch (e) {
-                alert("An error was encountered while attempting to restart browser! " + e);
+                alert("An error was encountered while attempting to Forget browser! " + e);
             }
         });
     },
@@ -190,7 +172,7 @@ var restartmychrome = {
                 }
                 //Check if users want a confirmation	
             if (aConfirm === true) {
-                if (aBoolean === true && confirm(chrome.i18n.getMessage("appRestartConfrimData"))) {
+                if (aBoolean === true && confirm(chrome.i18n.getMessage("appForgetConfrimData"))) {
                     clear();
                 }
             } else {
@@ -202,13 +184,13 @@ var restartmychrome = {
     }
 };
 
-var restartmychrometimer = {
-    restartTimer: undefined,
+var forgetittimer = {
+    ForgetTimer: undefined,
 
     init: function() {
         try {
             chrome.storage.onChanged.addListener(function() {
-                restartmychrometimer.onChange();
+                forgetittimer.onChange();
             });
 
             chrome.runtime.onMessage.addListener(
@@ -216,39 +198,39 @@ var restartmychrometimer = {
                     sendResponse.aTime;
                 }
             );
-            restartmychrometimer.setup();
+            forgetittimer.setup();
         } catch (e) {
-            alert("An error was encountered while initializing restartTimer! " + e);
+            alert("An error was encountered while initializing ForgetTimer! " + e);
         }
     },
 
     setup: function() {
         try {
             chrome.storage.sync.get({
-                timedRestart: false,
-                timedRestartFromType: 2,
-                timedRestartFrom: 1
+                timedForget: false,
+                timedForgetFromType: 2,
+                timedForgetFrom: 1
             }, function(key) {
 
-                if (key.timedRestart === true) {
+                if (key.timedForget === true) {
                     chrome.storage.sync.set({
-                        confirmRestart: false,
-                        confirmDataRestart: false
+                        confirmForget: false,
+                        confirmDataForget: false
                     });
                 }
 
                 var timeFilter = "";
 
-                if (key.timedRestartFromType == 1) {
-                    timeFilter = 60 * 60 * key.timedRestartFrom;
-                } else if (key.timedRestartFromType == 2) {
-                    timeFilter = 60 * key.timedRestartFrom;
+                if (key.timedForgetFromType == 1) {
+                    timeFilter = 60 * 60 * key.timedForgetFrom;
+                } else if (key.timedForgetFromType == 2) {
+                    timeFilter = 60 * key.timedForgetFrom;
                 }
 
-                if (key.timedRestart === true) {
-                    restartmychrometimer.timedRestart(timeFilter, key.timedRestart, key.timedRestartFromType);
+                if (key.timedForget === true) {
+                    forgetittimer.timedForget(timeFilter, key.timedForget, key.timedForgetFromType);
                 } else {
-                    restartmychrometimer.timedRestart(timeFilter, key.timedRestart, key.timedRestartFromType);
+                    forgetittimer.timedForget(timeFilter, key.timedForget, key.timedForgetFromType);
                 }
                 //Set badge background color.
                 chrome.browserAction.setBadgeBackgroundColor({
@@ -266,24 +248,24 @@ var restartmychrometimer = {
     onChange: function() {
         try {
             chrome.storage.sync.get({
-                timedRestart: false,
-                timedRestartFromType: 2,
-                timedRestartFrom: 1
+                timedForget: false,
+                timedForgetFromType: 2,
+                timedForgetFrom: 1
             }, function(key) {
 
-                if (key.timedRestart === false) {
-                    restartmychrometimer.timedRestart("", false, 0);
+                if (key.timedForget === false) {
+                    forgetittimer.timedForget("", false, 0);
                     return;
                 } else {
-                    restartmychrometimer.timedRestart("", false, 0);
+                    forgetittimer.timedForget("", false, 0);
                 }
 
-                if (key.timedRestartFromType == 1) {
-                    restartmychrometimer.timedRestart("", false, 0);
-                    restartmychrometimer.setup();
-                } else if (key.timedRestartFromType == 2) {
-                    restartmychrometimer.timedRestart("", false, 0);
-                    restartmychrometimer.setup();
+                if (key.timedForgetFromType == 1) {
+                    forgetittimer.timedForget("", false, 0);
+                    forgetittimer.setup();
+                } else if (key.timedForgetFromType == 2) {
+                    forgetittimer.timedForget("", false, 0);
+                    forgetittimer.setup();
                 }
 
             });
@@ -300,7 +282,7 @@ var restartmychrometimer = {
                     active: true
                 }, function(tabs) {
                     chrome.browserAction.setPopup({
-                        popup: 'cancel.html'
+                        popup: 'forget.html'
                     });
                 });
             } else {
@@ -313,7 +295,7 @@ var restartmychrometimer = {
         }
     },
 
-    timedRestart: function(aDuration, aEnabled, aFilter) {
+    timedForget: function(aDuration, aEnabled, aFilter) {
         try {
             var timer = aDuration,
                 minutes, seconds;
@@ -321,7 +303,7 @@ var restartmychrometimer = {
             switch (aEnabled) {
 
                 case true:
-                    restartTimer = setInterval(function() {
+                    ForgetTimer = setInterval(function() {
 
                         minutes = parseInt(timer / 60, 10);
                         seconds = parseInt(timer % 60, 10);
@@ -334,14 +316,14 @@ var restartmychrometimer = {
                             chrome.browserAction.setBadgeText({
                                 text: minutes + ":" + seconds
                             });
-                            restartmychrometimer.genWarning(true);
+                            forgetittimer.genWarning(true);
                         }
                         //If using minute show badge in last 30 seconds.
-                        if (timer <= 30 && aFilter == 2) {
+                        if (timer <= 45 && aFilter == 2) {
                             chrome.browserAction.setBadgeText({
                                 text: seconds.toString()
                             });
-                            restartmychrometimer.genWarning(true);
+                            forgetittimer.genWarning(true);
                         }
 
                         chrome.runtime.sendMessage({
@@ -349,26 +331,26 @@ var restartmychrometimer = {
                         });
 
                         if (--timer < 0) {
-                            clearInterval(restartTimer);
+                            clearInterval(ForgetTimer);
                             chrome.browserAction.setBadgeText({
                                 text: ""
                             });
-                            restartmychrome.browserRestart();
+                            forgetit.browserForget();
                         }
                     }, 1000);
                     break;
 
                 case false:
-                    if (aEnabled === false && typeof(restartTimer) != "undefined") {
-                        clearInterval(restartTimer);
-                        restartmychrometimer.genWarning(false);
+                    if (aEnabled === false && typeof(ForgetTimer) != "undefined") {
+                        clearInterval(ForgetTimer);
+                        forgetittimer.genWarning(false);
                         return;
                     }
                     break;
 
             }
         } catch (e) {
-            alert("An error was encountered in timedRestart! " + e);
+            alert("An error was encountered in timedForget! " + e);
         }
     }
 
@@ -376,6 +358,6 @@ var restartmychrometimer = {
 
 document.addEventListener('DOMContentLoaded', function() {
     document.removeEventListener('DOMContentLoaded');
-	restartmychrome.init();
-    restartmychrometimer.init();
+	forgetit.init();
+    forgetittimer.init();
 });

@@ -23,7 +23,7 @@
 					THE SOFTWARE.
 
 				*/
-	var restartmychromeoptions = {
+	var forgetitoptions = {
 
 	    //Load up localised content	
 	    init: function() {
@@ -54,33 +54,30 @@
 	        document.getElementById('dAll').textContent = chrome.i18n.getMessage("appOptionsDeSelectAll");
 	        document.getElementById('learnMore').textContent = chrome.i18n.getMessage("appOptionsLearnMore");
 	        document.getElementById('disclaimer').textContent = chrome.i18n.getMessage("appOptionsDisclaimer");
-	        document.getElementById('enableTimedRestartLabel').textContent = chrome.i18n.getMessage("appOptionsEnableTimedRestart");
-	        document.getElementById('restartTimeHourLabel').textContent = chrome.i18n.getMessage("appOptionsRestartTimeHour");
-	        document.getElementById('restartTimeMinuteLabel').textContent = chrome.i18n.getMessage("appOptionsRestartMinuteTime");
-	        document.getElementById('timedRestartTimeLabel').textContent = chrome.i18n.getMessage("appOptionsRestartTime");
-	        document.getElementById('restartInLabel').textContent = chrome.i18n.getMessage("appOptionsRestartIn");
-	        document.getElementById('restartInMinutesLabel').textContent = chrome.i18n.getMessage("appOptionsRestartInMinutes");
+	        document.getElementById('enableTimedForgetLabel').textContent = chrome.i18n.getMessage("appOptionsEnableTimedForget");
+	        document.getElementById('forgetTimeHourLabel').textContent = chrome.i18n.getMessage("appOptionsForgetTimeHour");
+	        document.getElementById('forgetTimeMinuteLabel').textContent = chrome.i18n.getMessage("appOptionsForgetMinuteTime");
+	        document.getElementById('timedForgetTimeLabel').textContent = chrome.i18n.getMessage("appOptionsForgetTime");
+	        document.getElementById('forgetInLabel').textContent = chrome.i18n.getMessage("appOptionsForgetIn");
+	        document.getElementById('forgetInMinutesLabel').textContent = chrome.i18n.getMessage("appOptionsForgetInMinutes");
 	        document.getElementById('supportTitle').textContent = chrome.i18n.getMessage("appOptionsSupportTitle");
 	        document.getElementById('contact-us').textContent = chrome.i18n.getMessage("appOptionsContactUs");
 	        document.getElementById('changelog').textContent = chrome.i18n.getMessage("appOptionsChangeLog");			
-	        document.getElementById('startupTitle').textContent = chrome.i18n.getMessage("appOptionsStartupTitle");
-	        document.getElementById('startupPageEnableLabel').textContent = chrome.i18n.getMessage("appOptionsEnableStartupPage");
-	        document.getElementById('startupPageURLLabel').textContent = chrome.i18n.getMessage("appOptionsStartupPageURL");
-	        document.getElementById('startupPageURL').setAttribute("placeholder", chrome.i18n.getMessage("appOptionsStartupPageURLP"));			
-			
-	        restartmychromeoptions.rmc_restore_options();
+	        
+	
+			 forgetitoptions.rmc_restore_options();
 
-	        $('#timedRestartHour, #timedRestartMinute').change(function() {
+	        $('#timedForgetHour, #timedForgetMinute').change(function() {
 	            //For hours limit to 24h as maximum.
-	            if (document.getElementById('timedRestartHour').checked === true) {
-	                document.getElementById('setRestartTime').setAttribute("max", "24");
-	            } else if (document.getElementById('timedRestartMinute').checked === true) {
-	                document.getElementById('setRestartTime').setAttribute("max", "60");
+	            if (document.getElementById('timedForgetHour').checked === true) {
+	                document.getElementById('setForgetTime').setAttribute("max", "24");
+	            } else if (document.getElementById('timedForgetMinute').checked === true) {
+	                document.getElementById('setForgetTime').setAttribute("max", "60");
 	            }
 	        });
 
-	        $('#enableTimedRestart').change(function() {
-	            if (document.getElementById('enableTimedRestart').checked === true) {
+	        $('#enableTimedForget').change(function() {
+	            if (document.getElementById('enableTimedForget').checked === true) {
 	                document.getElementById('enableConfirm').disabled = true;
 	                document.getElementById('enableConfirmData').disabled = true;
 	                document.getElementById('enableConfirm').checked = false;
@@ -107,10 +104,10 @@
 			#dataHistory, #dataIndexedDB, \
 			#dataLocalStorage, #dataPluginData, \
 			#dataPasswords, #dataWebSQL, \
-			#enableTimedRestart, #timedRestartHour, \
-			#timedRestartMinute, #timedRestartTime, \
-			#setRestartTime, #enableStartupPage").change(function() {
-	            restartmychromeoptions.rmc_save_options();
+			#enableTimedForget, #timedForgetHour, \
+			#timedForgetMinute, #timedForgetTime, \
+			#setForgetTime").change(function() {
+	            forgetitoptions.rmc_save_options();
 	        });
 
 	        chrome.runtime.onMessage.addListener(
@@ -121,12 +118,12 @@
 			
 			$("#startupPageURLClear").click(function() {
 				$('#startupPageURL').val("");
-				restartmychromeoptions.sendNotification("danger", "Cleared", "<i class='uk-icon-times'></i>", true);
-				restartmychromeoptions.rmc_save_options();
+				forgetitoptions.sendNotification("danger", "Cleared", "<i class='uk-icon-times'></i>", true);
+				forgetitoptions.rmc_save_options();
 			});
 			
 			$("#startupPageURLSave").click(function() {
-				restartmychromeoptions.rmc_save_options();
+				forgetitoptions.rmc_save_options();
 			});
 
 	    },
@@ -134,8 +131,8 @@
 	    rmc_save_options: function() {
 	        try {
 	            chrome.storage.sync.set({
-	                confirmRestart: document.getElementById('enableConfirm').checked,
-	                confirmDataRestart: document.getElementById('enableConfirmData').checked,
+	                confirmForget: document.getElementById('enableConfirm').checked,
+	                confirmDataForget: document.getElementById('enableConfirmData').checked,
 	                clearDataFrom: document.getElementById('clearDataFrom').value,
 	                clearAllData: document.getElementById('enableClearingData').checked,
 	                clearAllDataAppCache: document.getElementById('dataAppCache').checked,
@@ -150,13 +147,11 @@
 	                clearAllDataPluginData: document.getElementById('dataPluginData').checked,
 	                clearAllDataPasswords: document.getElementById('dataPasswords').checked,
 	                clearAllDatadataWebSQL: document.getElementById('dataWebSQL').checked,
-					openStartPage: document.getElementById('enableStartupPage').checked,
-					openStartPageURL: document.getElementById('startupPageURL').value.trim(),
-	                timedRestart: document.getElementById('enableTimedRestart').checked,
-	                timedRestartFromType: $('input:radio[name=timedRestartTime]:checked').val(),
-	                timedRestartFrom: document.getElementById('setRestartTime').value
+	                timedForget: document.getElementById('enableTimedForget').checked,
+	                timedForgetFromType: $('input:radio[name=timedForgetTime]:checked').val(),
+	                timedForgetFrom: document.getElementById('setForgetTime').value
 	            });
-				restartmychromeoptions.sendNotification("success", "Saved", "<i class='uk-icon-check'></i>", true);
+				forgetitoptions.sendNotification("success", "Saved", "<i class='uk-icon-check'></i>", true);
 	        } catch (e) {
 	            alert("An error was encountered while attempting to save settings! " + e);
 	        }
@@ -167,8 +162,8 @@
 
 	        try {
 	            chrome.storage.sync.get({
-	                confirmRestart: false,
-	                confirmDataRestart: true,
+	                confirmForget: false,
+	                confirmDataForget: true,
 	                clearDataFrom: "hour",
 	                clearAllData: false,
 	                clearAllDataAppCache: true,
@@ -183,14 +178,12 @@
 	                clearAllDataPluginData: true,
 	                clearAllDataPasswords: true,
 	                clearAllDatadataWebSQL: true,
-					openStartPage: false,
-					openStartPageURL: "",
-	                timedRestart: false,
-	                timedRestartFromType: 2,
-	                timedRestartFrom: 1
+	                timedForget: false,
+	                timedForgetFromType: 2,
+	                timedForgetFrom: 1
 	            }, function(key) {
-	                document.getElementById('enableConfirm').checked = key.confirmRestart;
-	                document.getElementById('enableConfirmData').checked = key.confirmDataRestart;
+	                document.getElementById('enableConfirm').checked = key.confirmForget;
+	                document.getElementById('enableConfirmData').checked = key.confirmDataForget;
 	                document.getElementById('clearDataFrom').value = key.clearDataFrom;
 	                document.getElementById('enableClearingData').checked = key.clearAllData;
 	                document.getElementById('dataAppCache').checked = key.clearAllDataAppCache;
@@ -204,18 +197,16 @@
 	                document.getElementById('dataLocalStorage').checked = key.clearAllDataLocalStorage;
 	                document.getElementById('dataPluginData').checked = key.clearAllDataPluginData;
 	                document.getElementById('dataPasswords').checked = key.clearAllDataPasswords;
-	                document.getElementById('dataWebSQL').checked = key.clearAllDatadataWebSQL;					
-					document.getElementById('enableStartupPage').checked = key.openStartPage;
-					document.getElementById('startupPageURL').value = key.openStartPageURL;				
-	                document.getElementById('enableTimedRestart').checked = key.timedRestart;
-	                $('input:radio[name="timedRestartTime"]').filter('[value="' + key.timedRestartFromType + '"]').attr('checked', true);
+	                document.getElementById('dataWebSQL').checked = key.clearAllDatadataWebSQL;								
+	                document.getElementById('enableTimedForget').checked = key.timedForget;
+	                $('input:radio[name="timedForgetTime"]').filter('[value="' + key.timedForgetFromType + '"]').attr('checked', true);
 	                //For hours limit to 24h as maximum.
-	                if (key.timedRestartFromType == 1) {
-	                    document.getElementById('setRestartTime').setAttribute("max", "24");
+	                if (key.timedForgetFromType == 1) {
+	                    document.getElementById('setForgetTime').setAttribute("max", "24");
 	                }
-	                document.getElementById('setRestartTime').value = key.timedRestartFrom;
+	                document.getElementById('setForgetTime').value = key.timedForgetFrom;
 
-	                if (document.getElementById('enableTimedRestart').checked === true) {
+	                if (document.getElementById('enableTimedForget').checked === true) {
 	                    document.getElementById('enableConfirm').disabled = true;
 	                    document.getElementById('enableConfirmData').disabled = true;
 	                    document.getElementById('enableConfirm').checked = false;
@@ -250,7 +241,7 @@
 	            document.getElementById('dataPluginData').checked = aToggle;
 	            document.getElementById('dataPasswords').checked = aToggle;
 	            document.getElementById('dataWebSQL').checked = aToggle;
-				restartmychromeoptions.rmc_save_options();
+				forgetitoptions.rmc_save_options();
 	        } catch (e) {
 	            alert("An error was encountered while toggling all data options! " + e);
 	        }
@@ -266,10 +257,10 @@
 
 	};
 
-	document.addEventListener('DOMContentLoaded', restartmychromeoptions.init);
+	document.addEventListener('DOMContentLoaded', forgetitoptions.init);
 	document.getElementById('sAll').addEventListener('click', function() {
-	    restartmychromeoptions.rmc_toggledata_options(true);
+	    forgetitoptions.rmc_toggledata_options(true);
 	});
 	document.getElementById('dAll').addEventListener('click', function() {
-	    restartmychromeoptions.rmc_toggledata_options(false);
+	    forgetitoptions.rmc_toggledata_options(false);
 	});

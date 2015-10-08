@@ -1,46 +1,35 @@
-Restart My Chrome
+Forget It
 ========
 
-Download the extension from [Google Web Store] (https://chrome.google.com/webstore/detail/restart-my-chrome/poifblphedfakpplnemomhgkhhpkpkla) 
+Download the extension from [Google Web Store] (https://chrome.google.com/webstore) 
 
-Source Code Repository For Restart My Chrome
+Source code repository for Forget It
 
 Source code released under [MIT License](http://opensource.org/licenses/MIT)
 
 
-#### IMPORTANT: 
-As of chrome version 46, They have removed access to chrome:restart in content scripts 
-learn more [here](https://goo.gl/deTVT2) this means __Restart My Chrome will no longer work__, 
-If you don't like this change by google please add your comment to the above URL maybe 
-voicing your frustrations over this change will allow them to create an alternative API that 
-allows restarting of chrome in extensions.
-
-
 #### What it does: 
-Allows users to easily restart `Chrome web browser`
+Allows users to easily `forget` current browsing history and data. 
 
 ### About this extension:
 
-- Keep all open pages.
-- Great if a plugin has stopped working
-- Excellent for when browser ram usage is really high.
+- Forked from [Restart My Chrome](https://github.com/InternalError503/restart-my-chrome) and re purposed.
 
 ### Features:
-- Enable restart confirmation.
+- Enable forget confirmation.
 - Clear browser data.
 - Set when to clear data from.
-- Automatically restart at user set intervals.
-- Open a specific page after restart i.e your home page.
+- Automatically forget at user set intervals.
 
 ### Localization:
 Currently supports the following locales
 - en (English)
 - en_Us (United States English)
-- fr (French)
 - More to come...
 
 ### History:
-We brought you [restart my fox] (https://addons.mozilla.org/en-US/firefox/addon/restart-my-fox), Now we bring you [restart my chrome] (https://chrome.google.com/webstore/detail/restart-my-chrome/poifblphedfakpplnemomhgkhhpkpkla).
+We brought you [restart my chrome] (https://chrome.google.com/webstore/detail/restart-my-chrome/poifblphedfakpplnemomhgkhhpkpkla) which is no longer working
+due to changes by google, So we took Restart My Chrome clear private data feature and made Forget It.
 
 ### Clear Browser Data:
 
@@ -78,6 +67,7 @@ Can any of the data be recovered once deleted, __No it permanently deletes this 
 
 ### Credits:
 Using popular open source projects.
+* Restart My Chrome ([MIT License](http://opensource.org/licenses/MIT))
 * UiKit ([MIT License](http://opensource.org/licenses/MIT))
 * jQuery ([MIT License](http://opensource.org/licenses/MIT))
 * normalize.css ([MIT License](http://opensource.org/licenses/MIT))
