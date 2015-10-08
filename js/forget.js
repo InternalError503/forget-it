@@ -39,23 +39,29 @@
 	        } catch (e) {
 	            alert("An error was encountered while initializing forget.js " + e);
 	        }
-	    }
+	    },
+		forgetTimerUpdateUI: function(){
+			chrome.extension.getBackgroundPage().forgetittimer.timedForget("", false, 0);
+	        chrome.browserAction.setBadgeText({
+	            text: ""
+	        });
+		}	
 	};
 
 	document.addEventListener('DOMContentLoaded', forgetitforget.init);
 	document.getElementById('forgetNow').addEventListener('click', function() {
 	    try {
 	        chrome.extension.getBackgroundPage().forgetit.browserForget();
+			forgetitforget.forgetTimerUpdateUI();
+			chrome.extension.getBackgroundPage().forgetittimer.setup();
+	        window.close();
 	    } catch (e) {
 	        alert("An error was encountered while triggering the Forget now button click event " + e);
 	    }
 	});
 	document.getElementById('cancel').addEventListener('click', function() {
 	    try {
-	        chrome.extension.getBackgroundPage().forgetittimer.timedForget("", false, 0);
-	        chrome.browserAction.setBadgeText({
-	            text: ""
-	        });
+			forgetitforget.forgetTimerUpdateUI();
 	        window.close();
 	    } catch (e) {
 	        alert("An error was encountered while triggering the cancel button click event " + e);
