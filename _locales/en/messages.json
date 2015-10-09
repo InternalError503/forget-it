@@ -186,5 +186,21 @@
   "appCancelStopButton": {
     "message": "Stop", 
     "description":"label for stop button"
-  }
+  },
+    "appForgetProcceedLabel": {
+    "message": "Proceeding will:", 
+    "description":"label for Proceeding heading"
+  },
+  "appForgetCloseAllLabel": {
+    "message": "Close all Tabs and Windows", 
+    "description":"label for Close all tabs and windows"
+  },
+  "appForgetDeleteAllLabel": {
+    "message": "Delete all Data based on settings.", 
+    "description":"label for Delete all data based on settings."
+  },
+  "appForgetOpenNewLabel": {
+    "message": "Open a new clean Window.", 
+    "description":"label for Open a new clean window."
+  } 
 }

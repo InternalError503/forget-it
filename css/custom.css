@@ -8,8 +8,11 @@
     font-size: 16px;
 }
 #main-cancel {
-    height: 145px;
+    height: 300px;
     width: 385px;
+}
+#forgetNow {
+    width: 260px;
 }
 html {
 	-webkit-user-select: none;
