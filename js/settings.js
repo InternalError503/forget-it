@@ -28,7 +28,6 @@
 	    //Load up localised content	
 	    init: function() {
 	        document.getElementById('confirmHeading').textContent = chrome.i18n.getMessage("appOptionsConfirmations");
-	        document.getElementById('confirmLabel').textContent = chrome.i18n.getMessage("appOptionsEnableConfirm");
 	        document.getElementById('browsingDataHeading').textContent = chrome.i18n.getMessage("appOptionsClearData");
 	        document.getElementById('clearDataLabel').textContent = chrome.i18n.getMessage("appOptionsEnableClearData");
 	        document.getElementById('confirmDataLabel').textContent = chrome.i18n.getMessage("appOptionsEnableConfirmData");
@@ -78,16 +77,11 @@
 
 	        $('#enableTimedForget').change(function() {
 	            if (document.getElementById('enableTimedForget').checked === true) {
-	                document.getElementById('enableConfirm').disabled = true;
 	                document.getElementById('enableConfirmData').disabled = true;
-	                document.getElementById('enableConfirm').checked = false;
 	                document.getElementById('enableConfirmData').checked = false;
-	                document.getElementById('confirmLabel').className = "uk-text-muted";
 	                document.getElementById('confirmDataLabel').className = "uk-text-muted";
 	            } else {
-	                document.getElementById('enableConfirm').disabled = false;
 	                document.getElementById('enableConfirmData').disabled = false;
-	                document.getElementById('confirmLabel').className = "";
 	                document.getElementById('confirmDataLabel').className = "";
 	            }
                 chrome.browserAction.setBadgeText({
@@ -96,7 +90,7 @@
 	        });
 
 	        //Save settings as they are changed.	
-	        $("#enableConfirm, #enableConfirmData, \
+	        $("#enableConfirmData, \
 			#clearDataFrom, #enableClearingData, \
 			#dataAppCache, #dataCache, \
 			#dataCookies, #dataDownloads, \
@@ -131,7 +125,6 @@
 	    rmc_save_options: function() {
 	        try {
 	            chrome.storage.sync.set({
-	                confirmForget: document.getElementById('enableConfirm').checked,
 	                confirmDataForget: document.getElementById('enableConfirmData').checked,
 	                clearDataFrom: document.getElementById('clearDataFrom').value,
 	                clearAllData: document.getElementById('enableClearingData').checked,
@@ -162,7 +155,6 @@
 
 	        try {
 	            chrome.storage.sync.get({
-	                confirmForget: false,
 	                confirmDataForget: true,
 	                clearDataFrom: "hour",
 	                clearAllData: false,
@@ -182,7 +174,6 @@
 	                timedForgetFromType: 2,
 	                timedForgetFrom: 1
 	            }, function(key) {
-	                document.getElementById('enableConfirm').checked = key.confirmForget;
 	                document.getElementById('enableConfirmData').checked = key.confirmDataForget;
 	                document.getElementById('clearDataFrom').value = key.clearDataFrom;
 	                document.getElementById('enableClearingData').checked = key.clearAllData;
@@ -207,16 +198,11 @@
 	                document.getElementById('setForgetTime').value = key.timedForgetFrom;
 
 	                if (document.getElementById('enableTimedForget').checked === true) {
-	                    document.getElementById('enableConfirm').disabled = true;
 	                    document.getElementById('enableConfirmData').disabled = true;
-	                    document.getElementById('enableConfirm').checked = false;
 	                    document.getElementById('enableConfirmData').checked = false;
-	                    document.getElementById('confirmLabel').className = "uk-text-muted";
 	                    document.getElementById('confirmDataLabel').className = "uk-text-muted";
 	                } else {
-	                    document.getElementById('enableConfirm').disabled = false;
 	                    document.getElementById('enableConfirmData').disabled = false;
-	                    document.getElementById('confirmLabel').className = "";
 	                    document.getElementById('confirmDataLabel').className = "";
 	                }
 

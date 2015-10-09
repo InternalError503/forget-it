@@ -11,10 +11,6 @@
     "message": "Confirmations:", 
     "description":"Confirmations label"
   },
-  "appOptionsEnableConfirm": {
-    "message": "Enable forget it confirmation.", 
-    "description":"Text for enable confirmation on forget."
-  },
   "appOptionsEnableConfirmData": {
     "message": "Enable clear data confirmation.", 
     "description":"Text for enable confirmation on clear data request."
@@ -115,10 +111,6 @@
     "message": "The (Clear Browser Data) feature is use at own risk, If you use this feature then you understand the risk that it permanently deletes this data, What data does it cover", 
     "description":"Disclaimer Message"
   },
-  "appForgetConfrim": {
-    "message": "Do you really want to forget it?", 
-    "description":"Test for forget it confirmation"
-  },
   "appForgetConfrimData": {
     "message": "Do you really want forget all data?", 
     "description":"Test for forget data confirmation"
@@ -140,7 +132,7 @@
     "description":"Set forget time label"
   },
   "appOptionsForgetIn": {
-    "message": "Forgetting in:", 
+    "message": "Forgetting in: ", 
     "description":"label for forgetting in: "
   },
   "appOptionsForgetInMinutes": {
@@ -164,7 +156,7 @@
     "description":"Main title for cancel popup"
   },
   "appCancelForgetIn": {
-    "message": "Forgetting in:", 
+    "message": "Forgetting in: ", 
     "description":"label for forgetting in: "
   },
   "appCancelForgetInMinutes": {

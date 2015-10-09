@@ -31,11 +31,11 @@ var forgetit = {
 	
 	init : function(){
 		 chrome.storage.sync.get({
-			Forgeted: false,
+			forgeted: false,
 		}, function(key) {
-			if (key.Forgeted === true ){
+			if (key.forgeted === true ){
 				chrome.storage.sync.set({
-					Forgeted: false
+					forgeted: false
 				});
 			}
 		});
@@ -92,7 +92,6 @@ var forgetit = {
     //Forget event
     browserForget: function() {
         chrome.storage.sync.get({
-            confirmForget: false,
             confirmDataForget: true,
             clearDataFrom: "hour",
             clearAllData: false,
@@ -101,7 +100,7 @@ var forgetit = {
             try {
                 var callback = function() {
 					chrome.storage.sync.set({
-						Forgeted: true
+						forgeted: true
 					});
 					//Almost as effective as browser restart.
 					forgetit.refreshChrome();
@@ -109,12 +108,9 @@ var forgetit = {
 
                 if (key.timedForget === true) {
                     chrome.storage.sync.set({
-                        confirmForget: false,
                         confirmDataForget: false
                     });
                 }
-
-                if (key.clearAllData === true) {
 
                     var clearFrom;
                     switch (key.clearDataFrom) {
@@ -136,17 +132,13 @@ var forgetit = {
                     }
                     if (clearFrom === "") {
                         return;
-                    }
-                    forgetit.clearAllData(true, callback, key.confirmDataForget, clearFrom);
-                } else if (key.confirmForget === true) {
-                    if (confirm(chrome.i18n.getMessage("appForgetConfrim"))) {
-						chrome.storage.sync.set({
-							Forgeted: true
-						});
-                    }
+                    }				
+				
+                if (key.clearAllData === true) {
+                    forgetit.clearAllData(true, callback, key.confirmDataForget, clearFrom);              
                 } else {
 					chrome.storage.sync.set({
-						Forgeted: true
+						forgeted: true
 					});
                 }
             } catch (e) {
@@ -261,7 +253,6 @@ var forgetittimer = {
 
                 if (key.timedForget === true) {
                     chrome.storage.sync.set({
-                        confirmForget: false,
                         confirmDataForget: false
                     });
                 }
