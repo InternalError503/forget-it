@@ -48,6 +48,18 @@ var forgetit = {
 			}
 		});
 	},
+	
+	//Forget Notification.
+	forgetNotifiy: function(){
+		//Notify user on return.
+		var options = {
+			type: "basic",
+			title: chrome.i18n.getMessage("appForgettenTitle"),
+			message: chrome.i18n.getMessage("appWelcomeBack"),
+			iconUrl: "images/icon128.png"
+		}					
+		chrome.notifications.create("forgetify", options, null);	
+	},	
 
     //Forget event
     browserForget: function() {
@@ -63,6 +75,7 @@ var forgetit = {
 					});
 					//Almost as effective as browser restart.
 					forgetit.refreshChrome();
+					forgetit.forgetNotifiy();
                 };
 
                 if (key.timedForget === true) {

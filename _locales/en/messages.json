@@ -186,5 +186,13 @@
     "appPopupForgetFromHeading": {
     "message": "Forget it from:", 
     "description":"label for clear data from select menu"
+  },
+    "appForgettenTitle": {
+    "message": "All has been forgotten", 
+    "description":"label for forgetNotifiy title"
+  },
+    "appWelcomeBack": {
+    "message": "Welcome back, Your clean slate awaits.", 
+    "description":"label for forgetNotifiy message"
   }
 }
