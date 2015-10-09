@@ -9,11 +9,19 @@ Source code released under [MIT License](http://opensource.org/licenses/MIT)
 
 
 #### What it does: 
-Allows users to easily `forget` current browsing history and data. 
+* Allows users to easily `forget` current browsing history and data. 
+* Close all __Tabs__ and __Windows__.
+* Delete all __Data__ based on settings.
+* Open a new clean __Window__.
 
 ### About this extension:
 
 - Forked from [Restart My Chrome](https://github.com/InternalError503/restart-my-chrome) and re purposed.
+- Help yourself take back control of your personal privacy and browsing data. 
+Web browser collect and tack your online activity when you visit websites, 
+Each website you visit may add cookies or collect personal information about you, 
+This information is stored in the browser then gathered by websites and web-services when browsing the world wide web.
+- Forget it helps you easily tack back control.
 
 ### Features:
 - Enable forget confirmation.
@@ -30,6 +38,7 @@ Currently supports the following locales
 ### History:
 We brought you [restart my chrome] (https://chrome.google.com/webstore/detail/restart-my-chrome/poifblphedfakpplnemomhgkhhpkpkla) which is no longer working
 due to changes by google, So we took Restart My Chrome clear private data feature and made Forget It.
+Forget It user interface design has been partially inspired from forget in firefox.
 
 ### Clear Browser Data:
 
@@ -59,7 +68,7 @@ Clear PluginData | Clears any information stored by plugins
 Clear Passwords | Clears any saved or stored passwords.
 Clear webSQL | Used by chrome for storing structured data
 
-####Disclaimer
+#### Disclaimer
 The __Clear Browser Data__ feature is use at own risk, If you use this feature then you understand
 the risk that it permanently deletes this data, What data does it cover [see](#clear-browser-data)
 
