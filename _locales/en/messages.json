@@ -167,14 +167,6 @@
     "message": "Cancel", 
     "description":"label for cancel button"
   },
-  "appTimedForgetStartButton": {
-    "message": "Start timed forget", 
-    "description":"label for start button"
-  },
-  "appTimedForgetStopButton": {
-    "message": "Stop timed forget", 
-    "description":"label for stop button"
-  },
     "appForgetProcceedLabel": {
     "message": "Proceeding will:", 
     "description":"label for Proceeding heading"

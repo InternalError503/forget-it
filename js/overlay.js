@@ -39,58 +39,15 @@ var forgetit = {
 				});
 			}
 		});
-			chrome.contextMenus.create({
-				  title: chrome.i18n.getMessage("appForgetNowButton"),
-				  id: "contextForgetNow",
-				  contexts: ["browser_action"],
-				  onclick: function() {
-					forgetit.browserForget();
-				  }
-			});
-		try {
-			chrome.storage.sync.get({
-				 timedForget: false
-			}, function(key) {
-				
-				if (key.timedForget === true){
-					forgetit.forgetitContext(true);
-				}
-			});
-		} catch (e) {}
-	},
-
-	//Forget it context menu.
-	forgetitContext: function(aBoolean){
-
-			if(aBoolean === true){
-				try {
-					chrome.contextMenus.create({
-						  title: chrome.i18n.getMessage("appTimedForgetStartButton"),
-						  id: "contextStart",
-						  contexts: ["browser_action"],
-						  onclick: function() {
-							forgetittimer.onChange();
-						  }
-					});
-					chrome.contextMenus.create({
-						  title: chrome.i18n.getMessage("appTimedForgetStopButton"),
-						  id: "contextCancel",
-						  contexts: ["browser_action"],
-						  onclick: function() {
-							forgetittimer.timedForget("", false, 0);
-							chrome.browserAction.setBadgeText({
-								text: ""
-							});
-						  }
-					});
-				} catch (e) {}
-			}else{
-				try{
-					chrome.contextMenus.remove("contextStart");
-					chrome.contextMenus.remove("contextCancel");
-				} catch (e) {}
+		chrome.contextMenus.create({
+			title: chrome.i18n.getMessage("appForgetNowButton"),
+			id: "contextForgetNow",
+			contexts: ["browser_action"],
+			onclick: function() {
+				forgetit.browserForget();
 			}
-	},	
+		});
+	},
 
     //Forget event
     browserForget: function() {
@@ -292,18 +249,13 @@ var forgetittimer = {
                     return;
                 } else {
                     forgetittimer.timedForget("", false, 0);
-                    try{
-                    	forgetit.forgetitContext(false);
-                    } catch (e) {}
                 }
 
                 if (key.timedForgetFromType == 1) {
                     forgetittimer.timedForget("", false, 0);
-                    forgetit.forgetitContext(true);
                     forgetittimer.setup();
                 } else if (key.timedForgetFromType == 2) {
                     forgetittimer.timedForget("", false, 0);
-                    forgetit.forgetitContext(true);
                     forgetittimer.setup();
                 }
 
