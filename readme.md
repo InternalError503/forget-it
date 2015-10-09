@@ -16,16 +16,16 @@ Source code released under [MIT License](http://opensource.org/licenses/MIT)
 
 ### About this extension:
 
-- Forked from [Restart My Chrome](https://github.com/InternalError503/restart-my-chrome) and re purposed.
+- Forked from [Restart My Chrome](https://github.com/InternalError503/restart-my-chrome) and re-purposed.
 - Help yourself take back control of your personal privacy and browsing data. 
-Web browser collect and tack your online activity when you visit websites, 
+Web browsers collect and track your online activity when you visit websites, 
 Each website you visit may add cookies or collect personal information about you, 
 This information is stored in the browser then gathered by websites and web-services when browsing the world wide web.
-- Forget it helps you easily tack back control.
+- Forget it helps you easily take back control.
 
 ### Features:
-- Enable forget confirmation.
-- Clear browser data.
+- Enable forget it confirmation.
+- Clears browser data.
 - Set when to clear data from.
 - Automatically forget at user set intervals.
 
@@ -38,6 +38,7 @@ Currently supports the following locales
 ### History:
 We brought you [restart my chrome] (https://chrome.google.com/webstore/detail/restart-my-chrome/poifblphedfakpplnemomhgkhhpkpkla) which is no longer working
 due to changes by google, So we took Restart My Chrome clear private data feature and made Forget It.
+
 Forget It user interface design has been partially inspired from forget in firefox.
 
 ### Clear Browser Data:
