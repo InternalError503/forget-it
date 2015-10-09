@@ -34,8 +34,8 @@
 	            document.getElementById('cancelTitle').textContent = chrome.i18n.getMessage("appCancelTitle");
 	            document.getElementById('cancelForgetIn').textContent = chrome.i18n.getMessage("appCancelForgetIn");
 	            document.getElementById('forgetInMinutesLabel').textContent = chrome.i18n.getMessage("appCancelForgetInMinutes");
-	            document.getElementById('forgetNowButton').textContent = chrome.i18n.getMessage("appCancelForgetNowButton");
-	            document.getElementById('cancelButton').textContent = chrome.i18n.getMessage("appCancelButton");
+	            document.getElementById('forgetNow').textContent = chrome.i18n.getMessage("appCancelForgetNowButton");
+	            document.getElementById('cancel').textContent = chrome.i18n.getMessage("appCancelButton");
 	        } catch (e) {
 	            alert("An error was encountered while initializing forget.js " + e);
 	        }
