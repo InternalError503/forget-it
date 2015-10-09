@@ -147,19 +147,19 @@
     "message": "See all changes made: ", 
     "description":"label for See all changes made:"
   },
-  "appCancelTitle": {
+  "appForgetTitle": {
     "message": "Auto forgetting is about to trigger!", 
     "description":"Main title for cancel popup"
   },
-  "appCancelForgetIn": {
+  "appForgetIn": {
     "message": "Forgetting in: ", 
     "description":"label for forgetting in: "
   },
-  "appCancelForgetInMinutes": {
+  "appForgetInMinutes": {
     "message": " minutes", 
     "description":"label for forgetting in minutes "
   },
-  "appCancelForgetNowButton": {
+  "appForgetNowButton": {
     "message": "Forget It Now", 
     "description":"label for ForgetNow button"
   },
@@ -167,11 +167,11 @@
     "message": "Cancel", 
     "description":"label for cancel button"
   },
-  "appCancelStartButton": {
+  "appTimedForgetStartButton": {
     "message": "Start timed forget", 
     "description":"label for start button"
   },
-  "appCancelStopButton": {
+  "appTimedForgetStopButton": {
     "message": "Stop timed forget", 
     "description":"label for stop button"
   },
@@ -190,5 +190,9 @@
   "appForgetOpenNewLabel": {
     "message": "Open a new clean Window.", 
     "description":"label for Open a new clean window."
-  } 
+  },
+    "appPopupForgetFromHeading": {
+    "message": "Forget it from:", 
+    "description":"label for clear data from select menu"
+  }
 }

@@ -40,7 +40,7 @@ var forgetit = {
 			}
 		});
 			chrome.contextMenus.create({
-				  title: chrome.i18n.getMessage("appCancelForgetNowButton"),
+				  title: chrome.i18n.getMessage("appForgetNowButton"),
 				  id: "contextForgetNow",
 				  contexts: ["browser_action"],
 				  onclick: function() {
@@ -61,10 +61,11 @@ var forgetit = {
 
 	//Forget it context menu.
 	forgetitContext: function(aBoolean){
-		try {
+
 			if(aBoolean === true){
+				try {
 					chrome.contextMenus.create({
-						  title: chrome.i18n.getMessage("appCancelStartButton"),
+						  title: chrome.i18n.getMessage("appTimedForgetStartButton"),
 						  id: "contextStart",
 						  contexts: ["browser_action"],
 						  onclick: function() {
@@ -72,7 +73,7 @@ var forgetit = {
 						  }
 					});
 					chrome.contextMenus.create({
-						  title: chrome.i18n.getMessage("appCancelStopButton"),
+						  title: chrome.i18n.getMessage("appTimedForgetStopButton"),
 						  id: "contextCancel",
 						  contexts: ["browser_action"],
 						  onclick: function() {
@@ -82,11 +83,13 @@ var forgetit = {
 							});
 						  }
 					});
+				} catch (e) {}
 			}else{
-					chrome.contextMenus.remove( "contextStart");
+				try{
+					chrome.contextMenus.remove("contextStart");
 					chrome.contextMenus.remove("contextCancel");
+				} catch (e) {}
 			}
-		} catch (e) {}
 	},	
 
     //Forget event
@@ -286,11 +289,12 @@ var forgetittimer = {
 
                 if (key.timedForget === false) {
                     forgetittimer.timedForget("", false, 0);
-                    forgetit.forgetitContext(false);
                     return;
                 } else {
                     forgetittimer.timedForget("", false, 0);
-                    forgetit.forgetitContext(false);
+                    try{
+                    	forgetit.forgetitContext(false);
+                    } catch (e) {}
                 }
 
                 if (key.timedForgetFromType == 1) {
@@ -317,12 +321,12 @@ var forgetittimer = {
                     active: true
                 }, function(tabs) {
                     chrome.browserAction.setPopup({
-                        popup: 'forget.html'
+                        popup: 'timedForget.html'
                     });
                 });
             } else {
                 chrome.browserAction.setPopup({
-                    popup: ""
+                    popup: "forget.html"
                 });
             }
         } catch (e) {

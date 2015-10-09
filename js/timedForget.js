@@ -23,50 +23,53 @@
 					THE SOFTWARE.
 
 				*/
-	var forgetitforget = {
+	var forgetittimedforget = {
 	    init: function() {
 	        try {
-				
-	            document.getElementById('forgetFromHeading').textContent = chrome.i18n.getMessage("appPopupForgetFromHeading");
-	            document.getElementById('hour').textContent = chrome.i18n.getMessage("appOptionsDataFromHour");
-	            document.getElementById('day').textContent = chrome.i18n.getMessage("appOptionsDataFromDay");
-	            document.getElementById('week').textContent = chrome.i18n.getMessage("appOptionsDataFromWeek");
-	            document.getElementById('month').textContent = chrome.i18n.getMessage("appOptionsDataFromMonth");
-	            document.getElementById('forever').textContent = chrome.i18n.getMessage("appOptionsDataFromForever");
+	            chrome.runtime.onMessage.addListener(
+	                function(request, sender, sendResponse) {
+	                    document.getElementById('remainingTime').textContent = request.aTime[0] + ":" + request.aTime[1];
+	                }
+	            );
+	            document.getElementById('timedForgetTitle').textContent = chrome.i18n.getMessage("appForgetTitle");
+	            document.getElementById('forgetIn').textContent = chrome.i18n.getMessage("appForgetIn");
+	            document.getElementById('forgetInMinutesLabel').textContent = chrome.i18n.getMessage("appForgetInMinutes");
 	            document.getElementById('forgetNow').textContent = chrome.i18n.getMessage("appForgetNowButton");
+	            document.getElementById('cancel').textContent = chrome.i18n.getMessage("appCancelButton");				
 	            document.getElementById('forgetProcceed').textContent = chrome.i18n.getMessage("appForgetProcceedLabel");
 	            document.getElementById('forgetCloseAll').textContent = chrome.i18n.getMessage("appForgetCloseAllLabel");
 	            document.getElementById('forgetDeleteAll').textContent = chrome.i18n.getMessage("appForgetDeleteAllLabel");
 	            document.getElementById('forgetOpenNew').textContent = chrome.i18n.getMessage("appForgetOpenNewLabel");
 				
-				chrome.storage.sync.get({
-					clearDataFrom: "hour"
-				}, function(key) {
-					document.getElementById('clearDataFrom').value = key.clearDataFrom;
-				});
-				
 				document.getElementById('forgetNow').addEventListener('click', function() {
 					try {
 						chrome.extension.getBackgroundPage().forgetit.browserForget();
+						forgetittimedforget.forgetTimerUpdateUI();
+						chrome.extension.getBackgroundPage().forgetittimer.setup();
 						window.close();
 					} catch (e) {
 						alert("An error was encountered while triggering the Forget now button click event " + e);
 					}
 				});
-				
-				 //Save settings as they are changed.	
-				document.getElementById('clearDataFrom').addEventListener('change', function() {
+				document.getElementById('cancel').addEventListener('click', function() {
 					try {
-						 chrome.storage.sync.set({
-							clearDataFrom: document.getElementById('clearDataFrom').value
-						});
-					} catch (e) {}
+						forgetittimedforget.forgetTimerUpdateUI();
+						window.close();
+					} catch (e) {
+						alert("An error was encountered while triggering the cancel button click event " + e);
+					}
 				});
 				
 	        } catch (e) {
 	            alert("An error was encountered while initializing forget.js " + e);
 	        }
-	    }	
+	    },
+		forgetTimerUpdateUI: function(){
+			chrome.extension.getBackgroundPage().forgetittimer.timedForget("", false, 0);
+	        chrome.browserAction.setBadgeText({
+	            text: ""
+	        });
+		}	
 	};
-	
-forgetitforget.init();
+
+forgetittimedforget.init();

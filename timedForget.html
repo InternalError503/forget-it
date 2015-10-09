@@ -27,26 +27,20 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="css/forget.css" type="text/css" />
+    <link rel="stylesheet" href="css/custom.css" type="text/css" />
     <link rel="stylesheet" href="css/uikit.almost-flat.min.css" type="text/css" />
 </head>
 
-<body id="main-forget">
+<body id="main-timed-forget">
     <hr class="uk-grid-divider" style="border:none;"></hr>
     <div class="uk-container uk-container-center">
         <div class="uk-grid" data-uk-grid-margin="">
             <div class="uk-width-1-1">
-				<img src="images/icon48.png" alt="logo"/>
-                <span id="forgetFromHeading" class="uk-text-medium uk-text-bold">Clear the following data from:</span>
-                    <select id="clearDataFrom" class="uk-button uk-button-danger">
-                        <option id="hour" value="hour">The past hour</option>
-                        <option id="day" value="day">The past day</option>
-                        <option id="week" value="week">The past week</option>
-                        <option id="month" value="month">The last 4 weeks</option>
-                        <option id="forever" value="forever">The beginning of time</option>
-                    </select>
-
- 
+                <h1 class="uk-panel-title"><i class="uk-icon-clock-o uk-icon-large"></i> <span id="timedForgetTitle">Auto Forgetting it is about to trigger</span></h1>
+                <p class="uk-text-center-medium">
+                    <span class="uk-text-large uk-text-bold" id="forgetIn">Forgetting it in: </span><span id="remainingTime" class="uk-text-large uk-text-danger  uk-text-bold">00:00</span><span class="uk-text-large  uk-text-bold" id="forgetInMinutesLabel"> minutes</span>
+                </p>
+                				
 				<hr class="uk-grid-divider"></hr>				
 					<h5 class="uk-text-bold" id="forgetProcceed">Proceeding will:</h5>
 						<ul class="uk-list uk-text-bold">
@@ -56,13 +50,14 @@
 						</ul>				
 				
                 <div class="uk-form-row">
-                    <button class="uk-button uk-button-danger uk-width-*" id="forgetNow">Forget It Now</button>
+                    <button class="uk-button uk-button-danger" id="forgetNow">Forget It Now</button>
+                    <button class="uk-button uk-button-primary" id="cancel">Cancel</button>
                 </div>
             </div>
         </div>
     </div>
     </div>
-    <script src="js/forget.js"></script>
+    <script src="js/timedForget.js"></script>
 </body>
 
 </html>
