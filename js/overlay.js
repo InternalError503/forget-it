@@ -82,6 +82,8 @@ var forgetit = {
 					chrome.storage.sync.set({
 						Forgeted: true
 					});
+					//Almost as effective as browser restart.
+					forgetit.refreshChrome();
                 };
 
                 if (key.timedForget === true) {
@@ -181,7 +183,31 @@ var forgetit = {
         } catch (e) {
             alert("An error was encountered while attempting to clear data! " + e);
         }
-    }
+    },
+	
+	//Almost as effective as browser restart.
+    refreshChrome: function() {	
+		chrome.windows.getAll({}, function(windows){
+			var total = null;
+			Array.prototype.forEach.call(windows, function(window, i){
+				total +=i;
+			});
+			    //If only one window create new window then close old (This prevents the browser closing completely)
+				if(total === 0){
+					chrome.windows.getCurrent(function(curWindow){
+						chrome.windows.create();
+						chrome.windows.remove(curWindow.id);
+					});
+				}else{
+					//If there is more then one window close all windows and create a new one.
+					Array.prototype.forEach.call(windows, function(window, i){
+						chrome.windows.remove(window.id);
+					});
+					chrome.windows.create();
+				}
+		});
+
+	}	
 };
 
 var forgetittimer = {
