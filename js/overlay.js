@@ -295,7 +295,10 @@ var forgetittimer = {
 
                 case true:
                     ForgetTimer = setInterval(function() {
-
+						
+                        //Toggle timedForget pop-up
+                        forgetittimer.genWarning(true);
+						
                         minutes = parseInt(timer / 60, 10);
                         seconds = parseInt(timer % 60, 10);
 
@@ -307,14 +310,12 @@ var forgetittimer = {
                             chrome.browserAction.setBadgeText({
                                 text: minutes + ":" + seconds
                             });
-                            forgetittimer.genWarning(true);
                         }
                         //If using minute show badge in last 45 seconds.
                         if (timer <= 45 && aFilter == 2) {
                             chrome.browserAction.setBadgeText({
                                 text: seconds.toString()
                             });
-                            forgetittimer.genWarning(true);
                         }
 
                         chrome.runtime.sendMessage({

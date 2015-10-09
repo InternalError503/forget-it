@@ -54,6 +54,9 @@
 				document.getElementById('cancel').addEventListener('click', function() {
 					try {
 						forgetittimedforget.forgetTimerUpdateUI();
+						chrome.storage.sync.set({
+							timedForget: false
+						});
 						window.close();
 					} catch (e) {
 						alert("An error was encountered while triggering the cancel button click event " + e);
