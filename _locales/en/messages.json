@@ -160,7 +160,7 @@
     "description":"label for See all changes made:"
   },
   "appCancelTitle": {
-    "message": "Auto forgetting is about to trigger.!", 
+    "message": "Auto forgetting is about to trigger!", 
     "description":"Main title for cancel popup"
   },
   "appCancelForgetIn": {
