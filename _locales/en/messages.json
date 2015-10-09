@@ -19,10 +19,6 @@
     "message": "Browsing Data:", 
     "description":"Browsing Data Label"
   },
-  "appOptionsEnableClearData": {
-    "message": "Enable clearing of browser data.", 
-    "description":"Text for enable clearing of browser data."
-  },
   "appOptionsclearDataFromHeading": {
     "message": "Clear the following data from:", 
     "description":"label for clear data from select menu"

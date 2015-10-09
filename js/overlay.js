@@ -94,7 +94,6 @@ var forgetit = {
         chrome.storage.sync.get({
             confirmDataForget: true,
             clearDataFrom: "hour",
-            clearAllData: false,
             timedForget: false
         }, function(key) {
             try {
@@ -134,13 +133,8 @@ var forgetit = {
                         return;
                     }				
 				
-                if (key.clearAllData === true) {
                     forgetit.clearAllData(true, callback, key.confirmDataForget, clearFrom);              
-                } else {
-					chrome.storage.sync.set({
-						forgeted: true
-					});
-                }
+
             } catch (e) {
                 alert("An error was encountered while attempting to Forget browser! " + e);
             }
@@ -152,7 +146,6 @@ var forgetit = {
             var clear = function() {
                     //Get user settings for what to clear 
                     chrome.storage.sync.get({
-                        clearAllData: false,
                         clearAllDataAppCache: true,
                         clearAllDataCache: true,
                         clearAllDataCookies: true,

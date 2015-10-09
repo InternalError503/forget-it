@@ -29,7 +29,6 @@
 	    init: function() {
 	        document.getElementById('confirmHeading').textContent = chrome.i18n.getMessage("appOptionsConfirmations");
 	        document.getElementById('browsingDataHeading').textContent = chrome.i18n.getMessage("appOptionsClearData");
-	        document.getElementById('clearDataLabel').textContent = chrome.i18n.getMessage("appOptionsEnableClearData");
 	        document.getElementById('confirmDataLabel').textContent = chrome.i18n.getMessage("appOptionsEnableConfirmData");
 	        document.getElementById('clearDataFromHeading').textContent = chrome.i18n.getMessage("appOptionsclearDataFromHeading");
 	        document.getElementById('hour').textContent = chrome.i18n.getMessage("appOptionsDataFromHour");
@@ -91,7 +90,7 @@
 
 	        //Save settings as they are changed.	
 	        $("#enableConfirmData, \
-			#clearDataFrom, #enableClearingData, \
+			#clearDataFrom, \
 			#dataAppCache, #dataCache, \
 			#dataCookies, #dataDownloads, \
 			#dataFileSystems, #dataFormData, \
@@ -127,7 +126,6 @@
 	            chrome.storage.sync.set({
 	                confirmDataForget: document.getElementById('enableConfirmData').checked,
 	                clearDataFrom: document.getElementById('clearDataFrom').value,
-	                clearAllData: document.getElementById('enableClearingData').checked,
 	                clearAllDataAppCache: document.getElementById('dataAppCache').checked,
 	                clearAllDataCache: document.getElementById('dataCache').checked,
 	                clearAllDataCookies: document.getElementById('dataCookies').checked,
@@ -157,7 +155,6 @@
 	            chrome.storage.sync.get({
 	                confirmDataForget: true,
 	                clearDataFrom: "hour",
-	                clearAllData: false,
 	                clearAllDataAppCache: true,
 	                clearAllDataCache: true,
 	                clearAllDataCookies: true,
@@ -176,7 +173,6 @@
 	            }, function(key) {
 	                document.getElementById('enableConfirmData').checked = key.confirmDataForget;
 	                document.getElementById('clearDataFrom').value = key.clearDataFrom;
-	                document.getElementById('enableClearingData').checked = key.clearAllData;
 	                document.getElementById('dataAppCache').checked = key.clearAllDataAppCache;
 	                document.getElementById('dataCache').checked = key.clearAllDataCache;
 	                document.getElementById('dataCookies').checked = key.clearAllDataCookies;
