@@ -1,0 +1,198 @@
+{
+  "appName": {
+    "message": "Forget It",
+    "description": "The title of the application, displayed in the web store."
+  },
+  "appDesc": {
+    "message": "Allows users to easily forget current browsing history and data.", 
+    "description":"The description of the application, displayed in the web store."
+  },
+  "appOptionsConfirmations": {
+    "message": "Confirmations:", 
+    "description":"Confirmations label"
+  },
+  "appOptionsEnableConfirmData": {
+    "message": "Enable clear data confirmation.", 
+    "description":"Text for enable confirmation on clear data request."
+  },
+  "appOptionsClearData": {
+    "message": "Browsing Data:", 
+    "description":"Browsing Data Label"
+  },
+  "appOptionsclearDataFromHeading": {
+    "message": "Clear the following data from:", 
+    "description":"label for clear data from select menu"
+  },  
+  "appOptionsDataFromHour": {
+    "message": "The past hour", 
+    "description":"Select menu hour."
+  }, 
+   "appOptionsDataFromDay": {
+    "message": "The past day", 
+    "description":"Select menu day."
+  },  
+  "appOptionsDataFromWeek": {
+    "message": "The past week", 
+    "description":"Select menu week."
+  },   
+  "appOptionsDataFromMonth": {
+    "message": "The last 4 weeks", 
+    "description":"Select menu Month."
+  }, 
+   "appOptionsDataFromForever": {
+    "message": "The beginning of time", 
+    "description":"Select menu forever."
+  }, 
+  "appOptionsAppCache": {
+    "message": "Clear AppCache.", 
+    "description":"label for clear appcache"
+  },
+  "appOptionsCache": {
+    "message": "Clear Cache.", 
+    "description":"label for clear cache"
+  },
+  "appOptionsCookies": {
+    "message": "Clear Cookies.", 
+    "description":"label for clear cookies"
+  },
+  "appOptionsDownloads": {
+    "message": "Clear Downloads.", 
+    "description":"label for clear downloads"
+  },
+  "appOptionsFileSystems": {
+    "message": "Clear File Systems.", 
+    "description":"label for clear file systems"
+  },
+  "appOptionsFormData": {
+    "message": "Clear Form Data.", 
+    "description":"label for clear form data"
+  },
+  "appOptionsHistory": {
+    "message": "Clear History.", 
+    "description":"label for clear history"
+  },
+  "appOptionsIndexedDB": {
+    "message": "Clear IndexedDB.", 
+    "description":"label for clear indexeddb"
+  },
+  "appOptionsLocalStorage": {
+    "message": "Clear Local Storage.", 
+    "description":"label for clear local storage"
+  },
+  "appOptionsPluginData": {
+    "message": "Clear Plugin Data.", 
+    "description":"label for clear plugin data"
+  },
+  "appOptionsPasswords": {
+    "message": "Clear Passwords.", 
+    "description":"label for clear passwords"
+  },
+  "appOptionsWebSQL": {
+    "message": "Clear WebSQL.", 
+    "description":"label for clear websql."
+  },
+  "appOptionsSelectAll": {
+    "message": "Select all", 
+    "description":"label for Select all"
+  },
+  "appOptionsDeSelectAll": {
+    "message": "Deselect all", 
+    "description":"label for Deselect all"
+  },
+  "appOptionsLearnMore": {
+    "message": "Learn more...", 
+    "description":"label for Learn More... url"
+  },
+  "appOptionsDisclaimer": {
+    "message": "The (Clear Browser Data) feature is use at own risk, If you use this feature then you understand the risk that it permanently deletes this data, What data does it cover", 
+    "description":"Disclaimer Message"
+  },
+  "appForgetConfrimData": {
+    "message": "Do you really want forget all data?", 
+    "description":"Test for forget data confirmation"
+  },
+  "appOptionsEnableTimedForget": {
+    "message": "Enable automatic forget at set interval. (on|off)", 
+    "description":"Enable automatic forget options label"
+  },
+  "appOptionsForgetTimeHour": {
+    "message": "Hour based timer.", 
+    "description":"Hour based timer label"
+  },
+  "appOptionsForgetMinuteTime": {
+    "message": "Minute based timer.", 
+    "description":"Minute based timer label"
+  },
+  "appOptionsForgetTime": {
+    "message": "Set forget time: ", 
+    "description":"Set forget time label"
+  },
+  "appOptionsForgetIn": {
+    "message": "Forgetting in: ", 
+    "description":"label for forgetting in: "
+  },
+  "appOptionsForgetInMinutes": {
+    "message": " minutes", 
+    "description":"label for forgetting in minutes "
+  },
+  "appOptionsSupportTitle": {
+    "message": "Support & Information.", 
+    "description":"label for Support & Information."
+  },
+  "appOptionsContactUs": {
+    "message": "Need help contact support: ", 
+    "description":"label for Need help contact support:"
+  },
+  "appOptionsChangeLog": {
+    "message": "See all changes made: ", 
+    "description":"label for See all changes made:"
+  },
+  "appForgetTitle": {
+    "message": "Auto forgetting is about to trigger!", 
+    "description":"Main title for cancel popup"
+  },
+  "appForgetIn": {
+    "message": "Forgetting in: ", 
+    "description":"label for forgetting in: "
+  },
+  "appForgetInMinutes": {
+    "message": " minutes", 
+    "description":"label for forgetting in minutes "
+  },
+  "appForgetNowButton": {
+    "message": "Forget It Now", 
+    "description":"label for ForgetNow button"
+  },
+  "appCancelButton": {
+    "message": "Cancel", 
+    "description":"label for cancel button"
+  },
+    "appForgetProcceedLabel": {
+    "message": "Proceeding will:", 
+    "description":"label for Proceeding heading"
+  },
+  "appForgetCloseAllLabel": {
+    "message": "Close all Tabs and Windows", 
+    "description":"label for Close all tabs and windows"
+  },
+  "appForgetDeleteAllLabel": {
+    "message": "Delete all Data based on settings.", 
+    "description":"label for Delete all data based on settings."
+  },
+  "appForgetOpenNewLabel": {
+    "message": "Open a new clean Window.", 
+    "description":"label for Open a new clean window."
+  },
+    "appPopupForgetFromHeading": {
+    "message": "Forget it from:", 
+    "description":"label for clear data from select menu"
+  },
+    "appForgettenTitle": {
+    "message": "All has been forgotten", 
+    "description":"label for forgetNotifiy title"
+  },
+    "appWelcomeBack": {
+    "message": "Welcome back, Your clean slate awaits.", 
+    "description":"label for forgetNotifiy message"
+  }
+}
