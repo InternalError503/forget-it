@@ -1,7 +1,7 @@
 Forget It
 ========
 
-Download the extension from [Google Web Store] (https://chrome.google.com/webstore) 
+Download the extension from [Google Web Store] (https://chrome.google.com/webstore/detail/forget-it/nlkcdcegdeibofhgkiodigcnidlbgafe?utm_source=git-repo) 
 
 Source code repository for Forget It
 
