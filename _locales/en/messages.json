@@ -180,11 +180,11 @@
     "description":"label for cancel button"
   },
   "appCancelStartButton": {
-    "message": "Start", 
+    "message": "Start timed forget", 
     "description":"label for start button"
   },
   "appCancelStopButton": {
-    "message": "Stop", 
+    "message": "Stop timed forget", 
     "description":"label for stop button"
   },
     "appForgetProcceedLabel": {

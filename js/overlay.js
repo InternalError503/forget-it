@@ -47,25 +47,46 @@ var forgetit = {
 					forgetit.browserForget();
 				  }
 			});
-			chrome.contextMenus.create({
-				  title: chrome.i18n.getMessage("appCancelStartButton"),
-				  id: "contextStart",
-				  contexts: ["browser_action"],
-				  onclick: function() {
-					forgetittimer.onChange();
-				  }
+		try {
+			chrome.storage.sync.get({
+				 timedForget: false
+			}, function(key) {
+				
+				if (key.timedForget === true){
+					forgetit.forgetitContext(true);
+				}
 			});
-			chrome.contextMenus.create({
-				  title: chrome.i18n.getMessage("appCancelStopButton"),
-				  id: "contextCancel",
-				  contexts: ["browser_action"],
-				  onclick: function() {
-					forgetittimer.timedForget("", false, 0);
-					chrome.browserAction.setBadgeText({
-						text: ""
+		} catch (e) {}
+	},
+
+	//Forget it context menu.
+	forgetitContext: function(aBoolean){
+		try {
+			if(aBoolean === true){
+					chrome.contextMenus.create({
+						  title: chrome.i18n.getMessage("appCancelStartButton"),
+						  id: "contextStart",
+						  contexts: ["browser_action"],
+						  onclick: function() {
+							forgetittimer.onChange();
+						  }
 					});
-				  }
-			});
+					chrome.contextMenus.create({
+						  title: chrome.i18n.getMessage("appCancelStopButton"),
+						  id: "contextCancel",
+						  contexts: ["browser_action"],
+						  onclick: function() {
+							forgetittimer.timedForget("", false, 0);
+							chrome.browserAction.setBadgeText({
+								text: ""
+							});
+						  }
+					});
+			}else{
+					chrome.contextMenus.remove( "contextStart");
+					chrome.contextMenus.remove("contextCancel");
+			}
+		} catch (e) {}
 	},	
 
     //Forget event
@@ -281,16 +302,20 @@ var forgetittimer = {
 
                 if (key.timedForget === false) {
                     forgetittimer.timedForget("", false, 0);
+                    forgetit.forgetitContext(false);
                     return;
                 } else {
                     forgetittimer.timedForget("", false, 0);
+                    forgetit.forgetitContext(false);
                 }
 
                 if (key.timedForgetFromType == 1) {
                     forgetittimer.timedForget("", false, 0);
+                    forgetit.forgetitContext(true);
                     forgetittimer.setup();
                 } else if (key.timedForgetFromType == 2) {
                     forgetittimer.timedForget("", false, 0);
+                    forgetit.forgetitContext(true);
                     forgetittimer.setup();
                 }
 
