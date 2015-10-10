@@ -63,7 +63,7 @@
 	        document.getElementById('changelog').textContent = chrome.i18n.getMessage("appOptionsChangeLog");			
 	        
 	
-			 forgetitoptions.rmc_restore_options();
+			 forgetitoptions.forget_restore_options();
 
 	        $('#timedForgetHour, #timedForgetMinute').change(function() {
 	            //For hours limit to 24h as maximum.
@@ -100,7 +100,7 @@
 			#enableTimedForget, #timedForgetHour, \
 			#timedForgetMinute, #timedForgetTime, \
 			#setForgetTime").change(function() {
-	            forgetitoptions.rmc_save_options();
+	            forgetitoptions.forget_save_options();
 	        });
 
 	        chrome.runtime.onMessage.addListener(
@@ -108,20 +108,9 @@
 	                document.getElementById('remainingTime').textContent = request.aTime[0] + ":" + request.aTime[1];
 	            }
 	        );
-			
-			$("#startupPageURLClear").click(function() {
-				$('#startupPageURL').val("");
-				forgetitoptions.sendNotification("danger", "Cleared", "<i class='uk-icon-times'></i>", true);
-				forgetitoptions.rmc_save_options();
-			});
-			
-			$("#startupPageURLSave").click(function() {
-				forgetitoptions.rmc_save_options();
-			});
-
 	    },
 	    // Saves options.
-	    rmc_save_options: function() {
+	    forget_save_options: function() {
 	        try {
 	            chrome.storage.sync.set({
 	                confirmDataForget: document.getElementById('enableConfirmData').checked,
@@ -149,7 +138,7 @@
 	    },
 
 	    // Restores saved options.
-	    rmc_restore_options: function() {
+	    forget_restore_options: function() {
 
 	        try {
 	            chrome.storage.sync.get({
@@ -209,7 +198,7 @@
 	    },
 
 	    //lets select or deselect all clear data items
-	    rmc_toggledata_options: function(aToggle) {
+	    forget_toggledata_options: function(aToggle) {
 	        try {
 	            document.getElementById('dataAppCache').checked = aToggle;
 	            document.getElementById('dataCache').checked = aToggle;
@@ -223,7 +212,7 @@
 	            document.getElementById('dataPluginData').checked = aToggle;
 	            document.getElementById('dataPasswords').checked = aToggle;
 	            document.getElementById('dataWebSQL').checked = aToggle;
-				forgetitoptions.rmc_save_options();
+				forgetitoptions.forget_save_options();
 	        } catch (e) {
 	            alert("An error was encountered while toggling all data options! " + e);
 	        }
@@ -241,8 +230,8 @@
 
 	document.addEventListener('DOMContentLoaded', forgetitoptions.init);
 	document.getElementById('sAll').addEventListener('click', function() {
-	    forgetitoptions.rmc_toggledata_options(true);
+	    forgetitoptions.forget_toggledata_options(true);
 	});
 	document.getElementById('dAll').addEventListener('click', function() {
-	    forgetitoptions.rmc_toggledata_options(false);
+	    forgetitoptions.forget_toggledata_options(false);
 	});
