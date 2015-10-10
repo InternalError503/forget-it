@@ -17,7 +17,7 @@
 		"default_title": "__MSG_appName__",	
 		"default_icon": "images/icon48.png",
 		"default_popup": "forget.html"
-	},		
+	},	
 	"background": {
       "scripts": [ "js/overlay.js" ]
 	},
@@ -28,5 +28,5 @@
 				"storage", 
 				"contextMenus" 
 		],
-		"version": "1.0"
+		"version": "1.1"
 }
