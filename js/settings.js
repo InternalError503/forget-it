@@ -235,5 +235,8 @@
 		}	
 
 	};
-
-	document.addEventListener('DOMContentLoaded', forgetitoptions.init);
+	
+document.addEventListener('DOMContentLoaded', function() {
+	document.removeEventListener('DOMContentLoaded');
+	forgetitoptions.init();
+});	
