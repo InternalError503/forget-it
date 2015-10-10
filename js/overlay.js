@@ -174,7 +174,8 @@ var forgetit = {
 			    //If only one window create new window then close old (This prevents the browser closing completely)
 				if(total === 0){
 					chrome.windows.getCurrent(function(curWindow){
-						chrome.windows.create();
+						//Attempt to restore window state from activated window.
+						chrome.windows.create({state: curWindow.state});
 						chrome.windows.remove(curWindow.id);
 					});
 				}else{
@@ -182,7 +183,10 @@ var forgetit = {
 					Array.prototype.forEach.call(windows, function(window, i){
 						chrome.windows.remove(window.id);
 					});
-					chrome.windows.create();
+					chrome.windows.getCurrent(function(curWindow){
+						//Attempt to restore window state from activated window.
+						chrome.windows.create({state: curWindow.state});
+					});
 				}
 		});
 
