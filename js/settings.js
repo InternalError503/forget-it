@@ -102,6 +102,14 @@
 			#setForgetTime").change(function() {
 	            forgetitoptions.forget_save_options();
 	        });
+			
+			//Select|Deselect buttons
+			$('#sAll').click(function(){
+				forgetitoptions.forget_toggledata_options(true);
+			});
+			$('#dAll').click(function(){
+				forgetitoptions.forget_toggledata_options(false);
+			});	
 
 	        chrome.runtime.onMessage.addListener(
 	            function(request, sender, sendResponse) {
@@ -229,9 +237,3 @@
 	};
 
 	document.addEventListener('DOMContentLoaded', forgetitoptions.init);
-	document.getElementById('sAll').addEventListener('click', function() {
-	    forgetitoptions.forget_toggledata_options(true);
-	});
-	document.getElementById('dAll').addEventListener('click', function() {
-	    forgetitoptions.forget_toggledata_options(false);
-	});
