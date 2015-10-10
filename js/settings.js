@@ -220,9 +220,9 @@
 		
 		sendNotification : function (aType, aMessage, aIcon, aUseIcon){
 			if (aUseIcon === true){
-				UIkit.notify(aIcon + " "+ aMessage, {status:aType, timeout : 500});
+				UIkit.notify(aIcon + " "+ aMessage, {status:aType, timeout : 1000, pos:'bottom-right'});
 			}else{
-				UIkit.notify(aMessage, {status:aType, timeout : 500});
+				UIkit.notify(aMessage, {status:aType, timeout : 1000, pos:'bottom-right'});
 			}	
 		}	
 
