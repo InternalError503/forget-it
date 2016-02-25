@@ -25,6 +25,7 @@ This information is stored in the browser then gathered by websites and web-serv
 
 ### Features:
 - Enable forget it confirmation.
+- Disable closing of all __Tabs__ and __Windows__.
 - Clears browser data.
 - Set when to clear data from.
 - Automatically forget at user set intervals.
