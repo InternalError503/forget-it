@@ -131,9 +131,17 @@
     "message": "Forgetting in: ", 
     "description":"label for forgetting in: "
   },
+  "appOptionsForgetInHours": {
+    "message": " hours", 
+    "description":"label for forgetting in hours"
+  },
   "appOptionsForgetInMinutes": {
     "message": " minutes", 
-    "description":"label for forgetting in minutes "
+    "description":"label for forgetting in minutes"
+  },
+  "appOptionsForgetInSeconds": {
+    "message": " seconds", 
+    "description":"label for forgetting in seconds"
   },
   "appOptionsSupportTitle": {
     "message": "Support & Information.", 

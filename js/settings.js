@@ -57,7 +57,7 @@
 	        document.getElementById('forgetTimeMinuteLabel').textContent = chrome.i18n.getMessage("appOptionsForgetMinuteTime");
 	        document.getElementById('timedForgetTimeLabel').textContent = chrome.i18n.getMessage("appOptionsForgetTime");
 	        document.getElementById('forgetInLabel').textContent = chrome.i18n.getMessage("appOptionsForgetIn");
-	        document.getElementById('forgetInMinutesLabel').textContent = chrome.i18n.getMessage("appOptionsForgetInMinutes");
+	        document.getElementById('forgetInTimeInLabel').textContent = chrome.i18n.getMessage("appOptionsForgetInMinutes");
 	        document.getElementById('supportTitle').textContent = chrome.i18n.getMessage("appOptionsSupportTitle");
 	        document.getElementById('contact-us').textContent = chrome.i18n.getMessage("appOptionsContactUs");
 	        document.getElementById('changelog').textContent = chrome.i18n.getMessage("appOptionsChangeLog");			
@@ -121,8 +121,21 @@
 
 	        chrome.runtime.onMessage.addListener(
 	            function(request, sender, sendResponse) {
-	                document.getElementById('remainingTime').textContent = request.aTime[0] + ":" + request.aTime[1];
-	            }
+						switch (request.aTimeIn) {						
+							case "h":
+								document.getElementById('forgetInTimeInLabel').textContent = chrome.i18n.getMessage("appOptionsForgetInHours");
+								document.getElementById('remainingTime').textContent = request.aTime[0] + ":" + request.aTime[1] + ":" + request.aTime[2];
+							break;						
+							case "m":
+								document.getElementById('forgetInTimeInLabel').textContent = chrome.i18n.getMessage("appOptionsForgetInMinutes");
+								document.getElementById('remainingTime').textContent = request.aTime[1] + ":" + request.aTime[2];
+							break;					
+							case "s":
+								document.getElementById('forgetInTimeInLabel').textContent = chrome.i18n.getMessage("appOptionsForgetInSeconds");
+								document.getElementById('remainingTime').textContent = request.aTime[1] + ":" + request.aTime[2];
+							break;
+						}
+					}
 	        );
 	    },
 	    // Saves options.

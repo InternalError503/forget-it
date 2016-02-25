@@ -205,6 +205,7 @@ var forgetittimer = {
             chrome.runtime.onMessage.addListener(
                 function(request, sender, sendResponse) {
                     sendResponse.aTime;
+                    sendResponse.aTimeIn;
                 }
             );
             forgetittimer.setup();
@@ -306,7 +307,7 @@ var forgetittimer = {
     timedForget: function(aDuration, aEnabled, aFilter) {
         try {
             var timer = aDuration,
-                minutes, seconds;
+                hours, minutes, seconds, timeIn;
 
             switch (aEnabled) {
 
@@ -316,9 +317,11 @@ var forgetittimer = {
                         //Toggle timedForget pop-up
                         forgetittimer.genWarning(true);
 						
-                        minutes = parseInt(timer / 60, 10);
+                        hours = Math.floor((timer / 60) / 60);
+                        minutes = Math.floor((timer / 60) % 60)
                         seconds = parseInt(timer % 60, 10);
-
+						
+                        hours = hours < 10 ? "0" + hours : hours;
                         minutes = minutes < 10 ? "0" + minutes : minutes;
                         seconds = seconds < 10 ? "0" + seconds : seconds;
 
@@ -334,9 +337,21 @@ var forgetittimer = {
                                 text: seconds.toString()
                             });
                         }
+						
+                        //Set time in visual display.						
+                        if (timer >= 60) {
+                            timeIn = 'm';
+                        }		
+                        if (timer >= 3600) {
+                            timeIn = 'h';
+                        }								
+                        if (timer <= 59) {
+                            timeIn = 's';
+                        }
 
                         chrome.runtime.sendMessage({
-                            aTime: [minutes, seconds]
+                            aTime: [hours, minutes, seconds],
+                            aTimeIn: timeIn
                         });
 
                         if (--timer < 0) {

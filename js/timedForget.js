@@ -26,20 +26,34 @@
 	var forgetittimedforget = {
 	    init: function() {
 	        try {
-	            chrome.runtime.onMessage.addListener(
-	                function(request, sender, sendResponse) {
-	                    document.getElementById('remainingTime').textContent = request.aTime[0] + ":" + request.aTime[1];
-	                }
-	            );
 	            document.getElementById('timedForgetTitle').textContent = chrome.i18n.getMessage("appForgetTitle");
 	            document.getElementById('forgetIn').textContent = chrome.i18n.getMessage("appForgetIn");
-	            document.getElementById('forgetInMinutesLabel').textContent = chrome.i18n.getMessage("appForgetInMinutes");
+	            document.getElementById('forgetInTimeInLabel').textContent = chrome.i18n.getMessage("appForgetInMinutes");
 	            document.getElementById('forgetNow').textContent = chrome.i18n.getMessage("appForgetNowButton");
 	            document.getElementById('cancel').textContent = chrome.i18n.getMessage("appCancelButton");				
 	            document.getElementById('forgetProcceed').textContent = chrome.i18n.getMessage("appForgetProcceedLabel");
 	            document.getElementById('forgetCloseAll').textContent = chrome.i18n.getMessage("appForgetCloseAllLabel");
 	            document.getElementById('forgetDeleteAll').textContent = chrome.i18n.getMessage("appForgetDeleteAllLabel");
 	            document.getElementById('forgetOpenNew').textContent = chrome.i18n.getMessage("appForgetOpenNewLabel");
+				
+	            chrome.runtime.onMessage.addListener(
+	                function(request, sender, sendResponse) {
+						switch (request.aTimeIn){						
+							case "h":
+								document.getElementById('forgetInTimeInLabel').textContent = chrome.i18n.getMessage("appOptionsForgetInHours");
+								document.getElementById('remainingTime').textContent = request.aTime[0] + ":" + request.aTime[1] + ":" + request.aTime[2];
+							break;						
+							case "m":
+								document.getElementById('forgetInTimeInLabel').textContent = chrome.i18n.getMessage("appOptionsForgetInMinutes");
+								document.getElementById('remainingTime').textContent = request.aTime[1] + ":" + request.aTime[2];
+							break;					
+							case "s":
+								document.getElementById('forgetInTimeInLabel').textContent = chrome.i18n.getMessage("appOptionsForgetInSeconds");
+								document.getElementById('remainingTime').textContent = request.aTime[1] + ":" + request.aTime[2];
+							break;
+						}
+	                }
+	            );
 				
 				document.getElementById('forgetNow').addEventListener('click', function() {
 					try {
