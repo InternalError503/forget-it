@@ -27,6 +27,16 @@
 	    init: function() {
 	        try {
 				
+				chrome.storage.sync.get({
+					closeTabsWindows: true
+				}, function(key) {
+					if (key.closeTabsWindows === false) {
+						document.getElementById('forgetCloseAllLi').style.display = "none";
+						document.getElementById('forgetOpenNewLi').style.display = "none";
+						document.getElementById('main-forget').style.height= "220px";
+					}
+				});
+				
 	            document.getElementById('forgetFromHeading').textContent = chrome.i18n.getMessage("appPopupForgetFromHeading");
 	            document.getElementById('hour').textContent = chrome.i18n.getMessage("appOptionsDataFromHour");
 	            document.getElementById('day').textContent = chrome.i18n.getMessage("appOptionsDataFromDay");

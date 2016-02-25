@@ -155,6 +155,10 @@
     "message": "See all changes made: ", 
     "description":"label for See all changes made:"
   },
+  "appOptionsDisableCloseAllTabsWindows": {
+    "message": "Close of All tabs and windows when forgetting.", 
+    "description":"Close windows and tabs when forgetting"
+  },
   "appForgetTitle": {
     "message": "Auto forgetting is about to trigger!", 
     "description":"Main title for cancel popup"

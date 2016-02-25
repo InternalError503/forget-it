@@ -26,6 +26,17 @@
 	var forgetittimedforget = {
 	    init: function() {
 	        try {
+				
+				chrome.storage.sync.get({
+					closeTabsWindows: true
+				}, function(key) {
+					if (key.closeTabsWindows === false) {
+						document.getElementById('forgetCloseAllLi').style.display = "none";
+						document.getElementById('forgetOpenNewLi').style.display = "none";
+						document.getElementById('main-timed-forget').style.height= "260px";
+					}
+				});
+				
 	            document.getElementById('timedForgetTitle').textContent = chrome.i18n.getMessage("appForgetTitle");
 	            document.getElementById('forgetIn').textContent = chrome.i18n.getMessage("appForgetIn");
 	            document.getElementById('forgetInTimeInLabel').textContent = chrome.i18n.getMessage("appForgetInMinutes");

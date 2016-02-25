@@ -66,15 +66,18 @@ var forgetit = {
         chrome.storage.sync.get({
             confirmDataForget: true,
             clearDataFrom: "hour",
-            timedForget: false
+            timedForget: false,
+            closeTabsWindows: true
         }, function(key) {
             try {
                 var callback = function() {
 					chrome.storage.sync.set({
 						forgeted: true
 					});
-					//Almost as effective as browser restart.
-					forgetit.refreshChrome();
+					//Almost as effective as browser restart, Now optional for users who want to keep there current session but clear history.
+					if (key.closeTabsWindows === true) {
+						forgetit.refreshChrome();
+					}						
 					forgetit.forgetNotifiy();
                 };
 
