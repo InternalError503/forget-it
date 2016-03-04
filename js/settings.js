@@ -261,6 +261,6 @@
 	};
 	
 document.addEventListener('DOMContentLoaded', function() {
-	document.removeEventListener('DOMContentLoaded');
+	document.removeEventListener('DOMContentLoaded', this);
 	forgetitoptions.init();
 });	
