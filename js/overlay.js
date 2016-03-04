@@ -385,7 +385,7 @@ var forgetittimer = {
 };
 
 document.addEventListener('DOMContentLoaded', function() {
-    document.removeEventListener('DOMContentLoaded');
+    document.removeEventListener('DOMContentLoaded', this);
 	forgetit.init();
     forgetittimer.init();
 });
