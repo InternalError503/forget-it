@@ -20,3 +20,13 @@
 html {
 	-webkit-user-select: none;
 }
+
+/*
+    locale specific
+*/
+.main-pl {
+    height: 330px !important;
+}
+.main-pla {
+    height: 370px !important;
+}

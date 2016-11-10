@@ -8,3 +8,13 @@
 html {
 	-webkit-user-select: none;
 }
+
+/*
+    locale specific
+*/
+.main-pl {
+    height: 240px !important;
+}
+.main-pla {
+    height: 280px !important;
+}

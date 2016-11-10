@@ -35,6 +35,15 @@
 						document.getElementById('forgetOpenNewLi').style.display = "none";
 						document.getElementById('main-forget').style.height= "220px";
 					}
+
+					// locale specific
+					if (window.navigator.language == "pl" && !key.closeTabsWindows) {
+						document.getElementById('main-forget').className += "main-pl";
+					} else if (window.navigator.language == "pl" && key.closeTabsWindows) {
+						document.getElementById('main-forget').className += "main-pla";
+					}
+
+
 				});
 				
 	            document.getElementById('forgetFromHeading').textContent = chrome.i18n.getMessage("appPopupForgetFromHeading");

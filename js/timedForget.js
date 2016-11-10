@@ -35,6 +35,14 @@
 						document.getElementById('forgetOpenNewLi').style.display = "none";
 						document.getElementById('main-timed-forget').style.height= "260px";
 					}
+
+					// locale specific
+					if (window.navigator.language == "pl" && !key.closeTabsWindows) {
+						document.getElementById('main-timed-forget').className += "main-pl";
+					} else if (window.navigator.language == "pl" && key.closeTabsWindows) {
+						document.getElementById('main-timed-forget').className += "main-pla";
+					}
+
 				});
 				
 	            document.getElementById('timedForgetTitle').textContent = chrome.i18n.getMessage("appForgetTitle");
