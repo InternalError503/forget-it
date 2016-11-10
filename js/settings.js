@@ -62,7 +62,8 @@
 	        document.getElementById('contact-us').textContent = chrome.i18n.getMessage("appOptionsContactUs");
 	        document.getElementById('changelog').textContent = chrome.i18n.getMessage("appOptionsChangeLog");			
 	        document.getElementById('disableCloseAllTabsWindowsLabel').textContent = chrome.i18n.getMessage("appOptionsDisableCloseAllTabsWindows");
-	
+			document.getElementById('autoForget').textContent = chrome.i18n.getMessage("appOptionsAutoForget");
+			
 			 forgetitoptions.forget_restore_options();
 
 	        $('#timedForgetHour, #timedForgetMinute').change(function() {
