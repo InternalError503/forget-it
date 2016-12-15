@@ -1,19 +1,19 @@
 {
   "appName": {
     "message": "Forget It",
-    "description": "The title of the application, displayed in the web store."
+    "description": "The title of the application, displayed in the web store"
   },
   "appDesc": {
-    "message": "Allows users to easily forget current browsing history and data.", 
-    "description":"The description of the application, displayed in the web store."
+    "message": "Allows users to easily forget current browsing history and data", 
+    "description":"The description of the application, displayed in the web store"
   },
   "appOptionsConfirmations": {
     "message": "Confirmations:", 
     "description":"Confirmations label"
   },
   "appOptionsEnableConfirmData": {
-    "message": "Enable clear data confirmation.", 
-    "description":"Text for enable confirmation on clear data request."
+    "message": "Enable clear data confirmation", 
+    "description":"Text for enable confirmation on clear data request"
   },
   "appOptionsClearData": {
     "message": "Browsing Data:", 
@@ -25,71 +25,71 @@
   },  
   "appOptionsDataFromHour": {
     "message": "The past hour", 
-    "description":"Select menu hour."
+    "description":"Select menu hour"
   }, 
    "appOptionsDataFromDay": {
     "message": "The past day", 
-    "description":"Select menu day."
+    "description":"Select menu day"
   },  
   "appOptionsDataFromWeek": {
     "message": "The past week", 
-    "description":"Select menu week."
+    "description":"Select menu week"
   },   
   "appOptionsDataFromMonth": {
     "message": "The last 4 weeks", 
-    "description":"Select menu Month."
+    "description":"Select menu Month"
   }, 
    "appOptionsDataFromForever": {
     "message": "The beginning of time", 
-    "description":"Select menu forever."
+    "description":"Select menu forever"
   }, 
   "appOptionsAppCache": {
-    "message": "Clear AppCache.", 
+    "message": "Clear AppCache", 
     "description":"label for clear appcache"
   },
   "appOptionsCache": {
-    "message": "Clear Cache.", 
+    "message": "Clear Cache", 
     "description":"label for clear cache"
   },
   "appOptionsCookies": {
-    "message": "Clear Cookies.", 
+    "message": "Clear Cookies", 
     "description":"label for clear cookies"
   },
   "appOptionsDownloads": {
-    "message": "Clear Downloads.", 
+    "message": "Clear Downloads", 
     "description":"label for clear downloads"
   },
   "appOptionsFileSystems": {
-    "message": "Clear File Systems.", 
+    "message": "Clear File Systems", 
     "description":"label for clear file systems"
   },
   "appOptionsFormData": {
-    "message": "Clear Form Data.", 
+    "message": "Clear Form Data", 
     "description":"label for clear form data"
   },
   "appOptionsHistory": {
-    "message": "Clear History.", 
+    "message": "Clear History", 
     "description":"label for clear history"
   },
   "appOptionsIndexedDB": {
-    "message": "Clear IndexedDB.", 
+    "message": "Clear IndexedDB", 
     "description":"label for clear indexeddb"
   },
   "appOptionsLocalStorage": {
-    "message": "Clear Local Storage.", 
+    "message": "Clear Local Storage", 
     "description":"label for clear local storage"
   },
   "appOptionsPluginData": {
-    "message": "Clear Plugin Data.", 
+    "message": "Clear Plugin Data", 
     "description":"label for clear plugin data"
   },
   "appOptionsPasswords": {
-    "message": "Clear Passwords.", 
+    "message": "Clear Passwords", 
     "description":"label for clear passwords"
   },
   "appOptionsWebSQL": {
-    "message": "Clear WebSQL.", 
-    "description":"label for clear websql."
+    "message": "Clear WebSQL", 
+    "description":"label for clear websql"
   },
   "appOptionsSelectAll": {
     "message": "Select all", 
@@ -116,11 +116,11 @@
     "description":"Enable automatic forget options label"
   },
   "appOptionsForgetTimeHour": {
-    "message": "Hour based timer.", 
+    "message": "Hour based timer", 
     "description":"Hour based timer label"
   },
   "appOptionsForgetMinuteTime": {
-    "message": "Minute based timer.", 
+    "message": "Minute based timer", 
     "description":"Minute based timer label"
   },
   "appOptionsForgetTime": {
@@ -144,8 +144,8 @@
     "description":"label for forgetting in seconds"
   },
   "appOptionsSupportTitle": {
-    "message": "Support & Information.", 
-    "description":"label for Support & Information."
+    "message": "Support & Information", 
+    "description":"label for Support & Information"
   },
   "appOptionsContactUs": {
     "message": "Need help contact support: ", 
@@ -156,7 +156,7 @@
     "description":"label for See all changes made:"
   },
   "appOptionsDisableCloseAllTabsWindows": {
-    "message": "Close of All tabs and windows when forgetting.", 
+    "message": "Close of All tabs and windows when forgetting", 
     "description":"Close windows and tabs when forgetting"
   },
   "appOptionsEnableCompletionPopup": {
@@ -164,8 +164,8 @@
     "description":"Toaster notification on completion"
   },
   "appOptionsAutoForget": {
-    "message": "Auto forget at set time.", 
-    "description":"lable for Auto forget at set time."
+    "message": "Auto forget at set time", 
+    "description":"lable for Auto forget at set time"
   },
   "appForgetTitle": {
     "message": "Auto forgetting is about to trigger!", 
@@ -196,12 +196,12 @@
     "description":"label for Close all tabs and windows"
   },
   "appForgetDeleteAllLabel": {
-    "message": "Delete all Data based on settings.", 
-    "description":"label for Delete all data based on settings."
+    "message": "Delete all Data based on settings", 
+    "description":"label for Delete all data based on settings"
   },
   "appForgetOpenNewLabel": {
-    "message": "Open a new clean Window.", 
-    "description":"label for Open a new clean window."
+    "message": "Open a new clean Window", 
+    "description":"label for Open a new clean window"
   },
     "appPopupForgetFromHeading": {
     "message": "Forget it from:", 
@@ -212,7 +212,7 @@
     "description":"label for forgetNotifiy title"
   },
     "appWelcomeBack": {
-    "message": "Welcome back, Your clean slate awaits.", 
+    "message": "Welcome back, Your clean slate awaits", 
     "description":"label for forgetNotifiy message"
   }
 }
