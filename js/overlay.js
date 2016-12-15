@@ -67,18 +67,39 @@ var forgetit = {
             confirmDataForget: true,
             clearDataFrom: "hour",
             timedForget: false,
-            closeTabsWindows: true
+            closeTabsWindows: true,
+            completionPopup: true
         }, function(key) {
             try {
                 var callback = function() {
 					chrome.storage.sync.set({
 						forgeted: true
 					});
-					//Almost as effective as browser restart, Now optional for users who want to keep there current session but clear history.
-					if (key.closeTabsWindows === true) {
-						forgetit.refreshChrome();
-					}						
-					forgetit.forgetNotifiy();
+                    //Almost as effective as browser restart, Now optional for users who want to keep there current session but clear history.
+                    if (key.closeTabsWindows === true) {
+                        forgetit.refreshChrome();
+                    }
+                    if (key.completionPopup === true) {
+                        forgetit.forgetNotifiy();
+                    } else {
+                        // Still show some visual indication of completion
+                        chrome.browserAction.setIcon({
+                            path: {
+                                "16": '/images/success_icon16.png',
+                                "48": '/images/success_icon48.png',
+                                "128": '/images/success_icon128.png'
+                            }
+                        });
+                        setTimeout(function () {
+                            chrome.browserAction.setIcon({
+                                path: {
+                                    "16": '/images/icon16.png',
+                                    "48": '/images/icon48.png',
+                                    "128": '/images/icon128.png'
+                                }
+                            });
+                        }, 2000);
+                    }
                 };
 
                 if (key.timedForget === true) {

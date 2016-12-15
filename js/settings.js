@@ -62,7 +62,8 @@
 	        document.getElementById('contact-us').textContent = chrome.i18n.getMessage("appOptionsContactUs");
 	        document.getElementById('changelog').textContent = chrome.i18n.getMessage("appOptionsChangeLog");			
 	        document.getElementById('disableCloseAllTabsWindowsLabel').textContent = chrome.i18n.getMessage("appOptionsDisableCloseAllTabsWindows");
-			document.getElementById('autoForget').textContent = chrome.i18n.getMessage("appOptionsAutoForget");
+	        document.getElementById('autoForget').textContent = chrome.i18n.getMessage("appOptionsAutoForget");
+	        document.getElementById('enableCompletionPopupLabel').textContent = chrome.i18n.getMessage("appOptionsEnableCompletionPopup");
 			
 			 forgetitoptions.forget_restore_options();
 
@@ -108,7 +109,8 @@
 			#dataLocalStorage, #dataPluginData, \
 			#dataPasswords, #dataWebSQL, \
 			#enableTimedForget, #timedForgetHour, \
-			#timedForgetMinute, #timedForgetTime, #disableCloseAllTabsWindows").change(function() {
+			#timedForgetMinute, #timedForgetTime, \
+			#disableCloseAllTabsWindows, #enableCompletionPopup").change(function() {
 	            forgetitoptions.forget_save_options();
 	        });
 			
@@ -160,7 +162,8 @@
 	                timedForget: document.getElementById('enableTimedForget').checked,
 	                timedForgetFromType: $('input:radio[name=timedForgetTime]:checked').val(),
 	                timedForgetFrom: document.getElementById('setForgetTime').value,
-	                closeTabsWindows: document.getElementById('disableCloseAllTabsWindows').checked
+	                closeTabsWindows: document.getElementById('disableCloseAllTabsWindows').checked,
+	                completionPopup: document.getElementById('enableCompletionPopup').checked
 	            });
 	                forgetitoptions.sendNotification("success", "Saved", "<i class='uk-icon-check'></i>", true);
 	        } catch (e) {
@@ -190,7 +193,8 @@
 	                timedForget: false,
 	                timedForgetFromType: 2,
 	                timedForgetFrom: 1,
-	                closeTabsWindows: true
+	                closeTabsWindows: true,
+	                completionPopup: true
 	            }, function(key) {
 	                document.getElementById('enableConfirmData').checked = key.confirmDataForget;
 	                document.getElementById('clearDataFrom').value = key.clearDataFrom;
@@ -208,6 +212,7 @@
 	                document.getElementById('dataWebSQL').checked = key.clearAllDatadataWebSQL;								
 	                document.getElementById('enableTimedForget').checked = key.timedForget;
 	                document.getElementById('disableCloseAllTabsWindows').checked = key.closeTabsWindows;
+	                document.getElementById('enableCompletionPopup').checked = key.completionPopup;
 	                $('input:radio[name="timedForgetTime"]').filter('[value="' + key.timedForgetFromType + '"]').attr('checked', true);
 	                //For hours limit to 24h as maximum.
 	                if (key.timedForgetFromType == 1) {
@@ -245,7 +250,7 @@
 	            document.getElementById('dataPluginData').checked = aToggle;
 	            document.getElementById('dataPasswords').checked = aToggle;
 	            document.getElementById('dataWebSQL').checked = aToggle;
-				forgetitoptions.forget_save_options();
+	            forgetitoptions.forget_save_options();
 	        } catch (e) {
 	            alert("An error was encountered while toggling all data options! " + e);
 	        }

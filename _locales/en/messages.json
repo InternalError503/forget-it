@@ -159,6 +159,10 @@
     "message": "Close of All tabs and windows when forgetting.", 
     "description":"Close windows and tabs when forgetting"
   },
+  "appOptionsEnableCompletionPopup": {
+    "message": "Enable completion notification", 
+    "description":"Toaster notification on completion"
+  },
   "appOptionsAutoForget": {
     "message": "Auto forget at set time.", 
     "description":"lable for Auto forget at set time."
