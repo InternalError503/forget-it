@@ -4,7 +4,7 @@
     "description": "The title of the application, displayed in the web store"
   },
   "appDesc": {
-    "message": "Wymaż wybrane dla siebie obecne dane przeglądania w łatwy sposób!", 
+    "message": "Wymaż wybrane przez siebie dane przeglądania w łatwy sposób!", 
     "description":"The description of the application, displayed in the web store"
   },
   "appOptionsConfirmations": {
@@ -12,7 +12,7 @@
     "description":"Confirmations label"
   },
   "appOptionsEnableConfirmData": {
-    "message": "Potwierdzaj czyszczenie danych", 
+    "message": "Potwierdzaj wymazywanie danych", 
     "description":"Text for enable confirmation on clear data request"
   },
   "appOptionsClearData": {
@@ -20,7 +20,7 @@
     "description":"Browsing Data Label"
   },
   "appOptionsclearDataFromHeading": {
-    "message": "Wyczyść następujące dane:", 
+    "message": "Wymaż następujące dane:", 
     "description":"label for clear data from select menu"
   },  
   "appOptionsDataFromHour": {
@@ -44,51 +44,51 @@
     "description":"Select menu forever"
   }, 
   "appOptionsAppCache": {
-    "message": "Wyczyść pamięć podręczną aplikacji", 
+    "message": "Wymaż pamięć podręczną aplikacji", 
     "description":"label for clear appcache"
   },
   "appOptionsCache": {
-    "message": "Wyczyść pamięć podręczną stron", 
+    "message": "Wymaż pamięć podręczną stron", 
     "description":"label for clear cache"
   },
   "appOptionsCookies": {
-    "message": "Wyczyść ciasteczka", 
+    "message": "Wymaż ciasteczka", 
     "description":"label for clear cookies"
   },
   "appOptionsDownloads": {
-    "message": "Wyczyść pobrane pliki", 
+    "message": "Wymaż pobrane pliki", 
     "description":"label for clear downloads"
   },
   "appOptionsFileSystems": {
-    "message": "Wyczyść systemy plików (FileSystems)", 
+    "message": "Wymaż systemy plików (FileSystems)", 
     "description":"label for clear file systems"
   },
   "appOptionsFormData": {
-    "message": "Wyczyść dane formularzy", 
+    "message": "Wymaż dane formularzy", 
     "description":"label for clear form data"
   },
   "appOptionsHistory": {
-    "message": "Wyczyść historię przeglądarki", 
+    "message": "Wymaż historię przeglądarki", 
     "description":"label for clear history"
   },
   "appOptionsIndexedDB": {
-    "message": "Wyczyść indeksowane bazy danych", 
+    "message": "Wymaż sporządzony indeks bazy danych (indexedDB)", 
     "description":"label for clear indexeddb"
   },
   "appOptionsLocalStorage": {
-    "message": "Wyczyść dane przechowywania lokalnego (LocalStorage)", 
+    "message": "Wymaż dane przechowywania lokalnego (LocalStorage)", 
     "description":"label for clear local storage"
   },
   "appOptionsPluginData": {
-    "message": "Wyczyść dane wtyczek", 
+    "message": "Wymaż dane wtyczek", 
     "description":"label for clear plugin data"
   },
   "appOptionsPasswords": {
-    "message": "Wyczyść zapisane hasła", 
+    "message": "Wymaż zapisane hasła", 
     "description":"label for clear passwords"
   },
   "appOptionsWebSQL": {
-    "message": "Wyczyść sieciowy strukturalny język zapytań (sieciowy SQL)", 
+    "message": "Wymaż sieciowy strukturalny język zapytań (sieciowy SQL/webSQL)", 
     "description":"label for clear websql"
   },
   "appOptionsSelectAll": {
@@ -100,11 +100,11 @@
     "description":"label for Deselect all"
   },
   "appOptionsLearnMore": {
-    "message": "kliknij tuaj...", 
+    "message": "kliknij tutaj...", 
     "description":"label for Learn More... url"
   },
   "appOptionsDisclaimer": {
-    "message": "Używaj funkcji czyszczenia danych przeglądania na własną odpowiedzialność. Jeśli jej używasz, oznajmiasz, że to rozumiesz, ryzykując trwałym usunięciem danych. Aby dowiedzieć się, jakie dane zawierają powyższe opcje", 
+    "message": "Używaj funkcji wymazywania danych przeglądania na własną odpowiedzialność! Jeśli to zrobisz, oznajmiasz, że rozumiesz, iż możesz trwale stracić te dane. Aby dowiedzieć się, jakie dane zawierają powyższe opcje", 
     "description":"Disclaimer Message"
   },
   "appForgetConfrimData": {
@@ -112,15 +112,15 @@
     "description":"Test for forget data confirmation"
   },
   "appOptionsEnableTimedForget": {
-    "message": "Wymazuj dane automatycznie według ustawionego odstępu. (włącz|wyłącz)", 
+    "message": "Wymazuj dane automatycznie według ustawionego odstępu", 
     "description":"Enable automatic forget options label"
   },
   "appOptionsForgetTimeHour": {
-    "message": "Zegar oparty o godziny", 
+    "message": "Czas w godzinach", 
     "description":"Hour based timer label"
   },
   "appOptionsForgetMinuteTime": {
-    "message": "Zegar oparty o minuty", 
+    "message": "Czas w minutach", 
     "description":"Minute based timer label"
   },
   "appOptionsForgetTime": {
@@ -160,11 +160,11 @@
     "description":"Close windows and tabs when forgetting"
   },
   "appOptionsEnableCompletionPopup": {
-    "message": "Enable completion notification", 
+    "message": "Pokazuj powiadomienie o zakończeniu wymazywania", 
     "description":"Toaster notification on completion"
   },
   "appOptionsAutoForget": {
-    "message": "Auto forget at set time", 
+    "message": "Automatyczne wymazywanie w określonym czasie", 
     "description":"lable for Auto forget at set time"
   },
   "appForgetTitle": {
@@ -196,7 +196,7 @@
     "description":"label for Close all tabs and windows"
   },
   "appForgetDeleteAllLabel": {
-    "message": "Usunięcie wszystkich danych w zależności od ustawień tego rozszerzenia", 
+    "message": "Wymazanie wszystkich danych wybranych w opcjach przez użytkownika", 
     "description":"label for Delete all data based on settings"
   },
   "appForgetOpenNewLabel": {
@@ -212,7 +212,7 @@
     "description":"label for forgetNotifiy title"
   },
     "appWelcomeBack": {
-    "message": "Witaj ponownie :) Twój czysty stan czeka", 
+    "message": "Witaj ponownie :) Twój czysty stan czeka ^^", 
     "description":"label for forgetNotifiy message"
   }
 }
