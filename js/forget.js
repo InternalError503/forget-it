@@ -72,7 +72,17 @@
 						alert("An error was encountered while triggering the Forget now button click event " + e);
 					}
 				});
-				
+
+				//Open settings from incontent
+				document.getElementById('incontentSettings').addEventListener('click', function() {
+					try {
+						chrome.extension.getBackgroundPage().forgetit.incontentSettings();
+						window.close();
+					} catch (e) {
+						alert("An error was encountered while triggering the open options page click event " + e);
+					}
+				});
+
 				 //Save settings as they are changed.	
 				document.getElementById('clearDataFrom').addEventListener('change', function() {
 					try {

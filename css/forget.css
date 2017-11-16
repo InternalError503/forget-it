@@ -8,6 +8,9 @@
 html {
 	-webkit-user-select: none;
 }
+#incontentSettings:hover {
+    cursor: pointer;
+}
 
 /*
     locale specific

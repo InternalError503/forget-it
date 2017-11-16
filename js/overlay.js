@@ -47,7 +47,23 @@ var forgetit = {
 				forgetit.browserForget();
 			}
 		});
-	},
+    },
+    
+    //Open settings from incontent
+    incontentSettings: function(){ 
+        var url = 'chrome-extension://' + chrome.runtime.id + '/settings.html';
+        //var url = 'chrome://extensions/?options=' + chrome.runtime.id;
+        chrome.tabs.query({url : url }, function (foundTab) {
+            if (foundTab[0]) {
+                chrome.tabs.update(foundTab[0].id, {
+                    active : true,
+                    url : url
+                });
+            } else {
+                chrome.tabs.create({url : url });
+            }
+        });
+    },
 	
 	//Forget Notification.
 	forgetNotifiy: function(){
