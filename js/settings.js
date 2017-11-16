@@ -23,7 +23,8 @@
 					THE SOFTWARE.
 
 				*/
-	var forgetitoptions = {
+	var notifyCount = 0, // limit notifications
+	    forgetitoptions = {
 
 	    //Load up localised content	
 	    init: function() {
@@ -257,6 +258,13 @@
 	    },
 		
 		sendNotification : function (aType, aMessage, aIcon, aUseIcon){
+			notifyCount++;
+			if (notifyCount >= 2 ){
+				setTimeout(function() {
+					notifyCount = 0;
+				}, 2000);
+				return;
+			} //Reduced notification span, not optimal solution
 			if (aUseIcon === true){
 				UIkit.notify(aIcon + " "+ aMessage, {status:aType, timeout : 1000, pos:'bottom-right'});
 			}else{
